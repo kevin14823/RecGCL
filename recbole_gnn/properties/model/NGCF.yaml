@@ -1,0 +1,11 @@
+embedding_size: 64
+hidden_size_list: [64,64,64]
+node_dropout: 0.1
+message_dropout: 0.1
+reg_weight: 1e-4
+
+eval_step: 10
+
+epochs: 300
+train_batch_size: 500
+eval_batch_size: 8196

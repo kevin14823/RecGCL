@@ -1,0 +1,366 @@
+Thu 06 Feb 2025 14:24:52 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/Amazon_Toys_and_Games
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 50
+train_batch_size = 1000
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 1
+stopping_step = 5
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}
+repeatable = False
+metrics = ['Recall', 'MRR', 'NDCG', 'Hit', 'Precision']
+topk = [10]
+valid_metric = tail/ndcg@10
+valid_metric_bigger = True
+eval_batch_size = 8196
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [0,inf)
+item_inter_num_interval = [0,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = None
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = True
+enable_amp = False
+enable_scaler = False
+transform = None
+numerical_features = []
+discretization = None
+kg_reverse_r = False
+entity_kg_num_interval = [0,inf)
+relation_kg_num_interval = [0,inf)
+MODEL_TYPE = ModelType.GENERAL
+embedding_size = 32
+n_layers = 2
+reg_weight = 0.1
+lambda = 0.1
+eps = 0.2
+temperature = 0.2
+layer_cl = 1
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+valid_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+test_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Thu 06 Feb 2025 14:25:00 INFO  Amazon_Toys_and_Games
+The number of users: 1342912
+Average actions of users: 1.677528145945636
+The number of items: 327699
+Average actions of items: 6.874533869599448
+The number of inters: 2252771
+The sparsity of the dataset: 99.99948808910104%
+Remain Fields: ['user_id', 'item_id']
+Thu 06 Feb 2025 14:25:20 INFO  [Training]: train_batch_size = [1000] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Thu 06 Feb 2025 14:25:20 INFO  [Evaluation]: eval_batch_size = [8196] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}]
+Thu 06 Feb 2025 14:25:20 INFO  XSimGCL(
+  (user_embedding): Embedding(1342912, 32)
+  (item_embedding): Embedding(327699, 32)
+  (gcn_conv): LightGCNConv(32)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+)
+Trainable parameters: 53459552
+Thu 06 Feb 2025 14:26:35 INFO  epoch 0 training [time: 74.40s, train_loss1: 865.5867, train_loss2: 23.1742, train_loss3: 948.3066]
+Thu 06 Feb 2025 14:37:18 INFO  head      : recall@10   : 0.0132 | mrr@10      : 0.0061 | ndcg@10     : 0.0072 | hit@10      : 0.0159 | precision@10: 0.0016
+Thu 06 Feb 2025 14:37:18 INFO  tail      : recall@10   : 0.0083 | mrr@10      : 0.0033 | ndcg@10     : 0.0045 | hit@10      : 0.0083 | precision@10: 0.0008
+Thu 06 Feb 2025 14:37:18 INFO  epoch 0 evaluating [time: 642.75s, valid_score: 0.004500]
+Thu 06 Feb 2025 14:37:19 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 14:38:33 INFO  epoch 1 training [time: 73.96s, train_loss1: 531.2761, train_loss2: 82.0884, train_loss3: 875.7212]
+Thu 06 Feb 2025 14:49:17 INFO  head      : recall@10   : 0.0138 | mrr@10      : 0.0068 | ndcg@10     : 0.0077 | hit@10      : 0.0173 | precision@10: 0.0017
+Thu 06 Feb 2025 14:49:17 INFO  tail      : recall@10   : 0.0097 | mrr@10      : 0.0038 | ndcg@10     : 0.0052 | hit@10      : 0.0097 | precision@10: 0.0010
+Thu 06 Feb 2025 14:49:17 INFO  epoch 1 evaluating [time: 644.39s, valid_score: 0.005200]
+Thu 06 Feb 2025 14:49:19 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 14:50:33 INFO  epoch 2 training [time: 74.03s, train_loss1: 352.7937, train_loss2: 129.5856, train_loss3: 859.1287]
+Thu 06 Feb 2025 14:59:53 INFO  head      : recall@10   : 0.0142 | mrr@10      : 0.0069 | ndcg@10     : 0.0080 | hit@10      : 0.0177 | precision@10: 0.0018
+Thu 06 Feb 2025 14:59:53 INFO  tail      : recall@10   : 0.0103 | mrr@10      : 0.0040 | ndcg@10     : 0.0055 | hit@10      : 0.0103 | precision@10: 0.0010
+Thu 06 Feb 2025 14:59:53 INFO  epoch 2 evaluating [time: 559.77s, valid_score: 0.005500]
+Thu 06 Feb 2025 14:59:54 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 15:01:08 INFO  epoch 3 training [time: 73.92s, train_loss1: 264.5501, train_loss2: 159.4238, train_loss3: 856.5552]
+Thu 06 Feb 2025 15:13:00 INFO  head      : recall@10   : 0.0144 | mrr@10      : 0.0067 | ndcg@10     : 0.0079 | hit@10      : 0.0182 | precision@10: 0.0018
+Thu 06 Feb 2025 15:13:00 INFO  tail      : recall@10   : 0.0107 | mrr@10      : 0.0042 | ndcg@10     : 0.0057 | hit@10      : 0.0107 | precision@10: 0.0011
+Thu 06 Feb 2025 15:13:00 INFO  epoch 3 evaluating [time: 711.62s, valid_score: 0.005700]
+Thu 06 Feb 2025 15:13:01 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 15:14:15 INFO  epoch 4 training [time: 73.82s, train_loss1: 217.4843, train_loss2: 177.4820, train_loss3: 856.2732]
+Thu 06 Feb 2025 15:23:36 INFO  head      : recall@10   : 0.0146 | mrr@10      : 0.0067 | ndcg@10     : 0.0079 | hit@10      : 0.0185 | precision@10: 0.0019
+Thu 06 Feb 2025 15:23:36 INFO  tail      : recall@10   : 0.0109 | mrr@10      : 0.0042 | ndcg@10     : 0.0058 | hit@10      : 0.0109 | precision@10: 0.0011
+Thu 06 Feb 2025 15:23:36 INFO  epoch 4 evaluating [time: 561.68s, valid_score: 0.005800]
+Thu 06 Feb 2025 15:23:38 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 15:24:52 INFO  epoch 5 training [time: 73.99s, train_loss1: 189.7583, train_loss2: 188.9319, train_loss3: 856.4380]
+Thu 06 Feb 2025 15:34:03 INFO  head      : recall@10   : 0.0148 | mrr@10      : 0.0066 | ndcg@10     : 0.0079 | hit@10      : 0.0185 | precision@10: 0.0019
+Thu 06 Feb 2025 15:34:03 INFO  tail      : recall@10   : 0.0110 | mrr@10      : 0.0043 | ndcg@10     : 0.0058 | hit@10      : 0.0110 | precision@10: 0.0011
+Thu 06 Feb 2025 15:34:03 INFO  epoch 5 evaluating [time: 550.57s, valid_score: 0.005800]
+Thu 06 Feb 2025 15:34:04 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 15:35:18 INFO  epoch 6 training [time: 73.74s, train_loss1: 171.5370, train_loss2: 196.9097, train_loss3: 856.6721]
+Thu 06 Feb 2025 15:44:38 INFO  head      : recall@10   : 0.0148 | mrr@10      : 0.0066 | ndcg@10     : 0.0079 | hit@10      : 0.0185 | precision@10: 0.0019
+Thu 06 Feb 2025 15:44:38 INFO  tail      : recall@10   : 0.0111 | mrr@10      : 0.0044 | ndcg@10     : 0.0059 | hit@10      : 0.0111 | precision@10: 0.0011
+Thu 06 Feb 2025 15:44:38 INFO  epoch 6 evaluating [time: 560.01s, valid_score: 0.005900]
+Thu 06 Feb 2025 15:44:39 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 15:45:53 INFO  epoch 7 training [time: 74.02s, train_loss1: 159.2902, train_loss2: 202.8358, train_loss3: 856.9289]
+Thu 06 Feb 2025 15:55:08 INFO  head      : recall@10   : 0.0150 | mrr@10      : 0.0068 | ndcg@10     : 0.0081 | hit@10      : 0.0188 | precision@10: 0.0019
+Thu 06 Feb 2025 15:55:08 INFO  tail      : recall@10   : 0.0118 | mrr@10      : 0.0045 | ndcg@10     : 0.0062 | hit@10      : 0.0118 | precision@10: 0.0012
+Thu 06 Feb 2025 15:55:08 INFO  epoch 7 evaluating [time: 555.05s, valid_score: 0.006200]
+Thu 06 Feb 2025 15:55:10 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 15:56:24 INFO  epoch 8 training [time: 74.12s, train_loss1: 149.9509, train_loss2: 207.5430, train_loss3: 857.1439]
+Thu 06 Feb 2025 16:05:38 INFO  head      : recall@10   : 0.0155 | mrr@10      : 0.0067 | ndcg@10     : 0.0082 | hit@10      : 0.0194 | precision@10: 0.0020
+Thu 06 Feb 2025 16:05:38 INFO  tail      : recall@10   : 0.0118 | mrr@10      : 0.0045 | ndcg@10     : 0.0062 | hit@10      : 0.0118 | precision@10: 0.0012
+Thu 06 Feb 2025 16:05:38 INFO  epoch 8 evaluating [time: 554.16s, valid_score: 0.006200]
+Thu 06 Feb 2025 16:05:40 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 16:06:54 INFO  epoch 9 training [time: 74.01s, train_loss1: 142.7553, train_loss2: 211.3599, train_loss3: 857.3476]
+Thu 06 Feb 2025 16:16:08 INFO  head      : recall@10   : 0.0151 | mrr@10      : 0.0068 | ndcg@10     : 0.0081 | hit@10      : 0.0191 | precision@10: 0.0019
+Thu 06 Feb 2025 16:16:08 INFO  tail      : recall@10   : 0.0117 | mrr@10      : 0.0044 | ndcg@10     : 0.0061 | hit@10      : 0.0117 | precision@10: 0.0012
+Thu 06 Feb 2025 16:16:08 INFO  epoch 9 evaluating [time: 554.22s, valid_score: 0.006100]
+Thu 06 Feb 2025 16:17:22 INFO  epoch 10 training [time: 73.89s, train_loss1: 137.1487, train_loss2: 214.5643, train_loss3: 857.5504]
+Thu 06 Feb 2025 16:26:36 INFO  head      : recall@10   : 0.0147 | mrr@10      : 0.0067 | ndcg@10     : 0.0079 | hit@10      : 0.0187 | precision@10: 0.0019
+Thu 06 Feb 2025 16:26:36 INFO  tail      : recall@10   : 0.0118 | mrr@10      : 0.0045 | ndcg@10     : 0.0062 | hit@10      : 0.0118 | precision@10: 0.0012
+Thu 06 Feb 2025 16:26:36 INFO  epoch 10 evaluating [time: 554.68s, valid_score: 0.006200]
+Thu 06 Feb 2025 16:26:38 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 16:27:52 INFO  epoch 11 training [time: 74.10s, train_loss1: 132.5465, train_loss2: 217.2789, train_loss3: 857.7371]
+Thu 06 Feb 2025 16:37:07 INFO  head      : recall@10   : 0.0146 | mrr@10      : 0.0067 | ndcg@10     : 0.0079 | hit@10      : 0.0185 | precision@10: 0.0019
+Thu 06 Feb 2025 16:37:07 INFO  tail      : recall@10   : 0.0118 | mrr@10      : 0.0045 | ndcg@10     : 0.0062 | hit@10      : 0.0118 | precision@10: 0.0012
+Thu 06 Feb 2025 16:37:07 INFO  epoch 11 evaluating [time: 555.14s, valid_score: 0.006200]
+Thu 06 Feb 2025 16:37:09 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 16:38:23 INFO  epoch 12 training [time: 74.02s, train_loss1: 128.5818, train_loss2: 219.6153, train_loss3: 857.8143]
+Thu 06 Feb 2025 16:47:40 INFO  head      : recall@10   : 0.0151 | mrr@10      : 0.0067 | ndcg@10     : 0.0080 | hit@10      : 0.0191 | precision@10: 0.0019
+Thu 06 Feb 2025 16:47:40 INFO  tail      : recall@10   : 0.0119 | mrr@10      : 0.0045 | ndcg@10     : 0.0062 | hit@10      : 0.0119 | precision@10: 0.0012
+Thu 06 Feb 2025 16:47:40 INFO  epoch 12 evaluating [time: 556.88s, valid_score: 0.006200]
+Thu 06 Feb 2025 16:47:41 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 16:48:55 INFO  epoch 13 training [time: 74.04s, train_loss1: 125.5206, train_loss2: 221.6652, train_loss3: 857.9669]
+Thu 06 Feb 2025 16:58:11 INFO  head      : recall@10   : 0.0159 | mrr@10      : 0.0068 | ndcg@10     : 0.0083 | hit@10      : 0.0200 | precision@10: 0.0020
+Thu 06 Feb 2025 16:58:11 INFO  tail      : recall@10   : 0.0119 | mrr@10      : 0.0045 | ndcg@10     : 0.0062 | hit@10      : 0.0119 | precision@10: 0.0012
+Thu 06 Feb 2025 16:58:11 INFO  epoch 13 evaluating [time: 555.99s, valid_score: 0.006200]
+Thu 06 Feb 2025 16:58:13 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 16:59:26 INFO  epoch 14 training [time: 73.88s, train_loss1: 122.5112, train_loss2: 223.4686, train_loss3: 858.0380]
+Thu 06 Feb 2025 17:08:41 INFO  head      : recall@10   : 0.0152 | mrr@10      : 0.0065 | ndcg@10     : 0.0079 | hit@10      : 0.0188 | precision@10: 0.0019
+Thu 06 Feb 2025 17:08:41 INFO  tail      : recall@10   : 0.0120 | mrr@10      : 0.0045 | ndcg@10     : 0.0062 | hit@10      : 0.0120 | precision@10: 0.0012
+Thu 06 Feb 2025 17:08:41 INFO  epoch 14 evaluating [time: 554.30s, valid_score: 0.006200]
+Thu 06 Feb 2025 17:08:42 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 17:09:56 INFO  epoch 15 training [time: 74.11s, train_loss1: 119.8490, train_loss2: 225.0348, train_loss3: 858.0574]
+Thu 06 Feb 2025 17:20:03 INFO  head      : recall@10   : 0.0154 | mrr@10      : 0.0065 | ndcg@10     : 0.0080 | hit@10      : 0.0192 | precision@10: 0.0019
+Thu 06 Feb 2025 17:20:03 INFO  tail      : recall@10   : 0.0121 | mrr@10      : 0.0045 | ndcg@10     : 0.0063 | hit@10      : 0.0121 | precision@10: 0.0012
+Thu 06 Feb 2025 17:20:03 INFO  epoch 15 evaluating [time: 607.10s, valid_score: 0.006300]
+Thu 06 Feb 2025 17:20:05 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 17:21:19 INFO  epoch 16 training [time: 74.04s, train_loss1: 117.9946, train_loss2: 226.4741, train_loss3: 858.2310]
+Thu 06 Feb 2025 17:31:57 INFO  head      : recall@10   : 0.0155 | mrr@10      : 0.0066 | ndcg@10     : 0.0081 | hit@10      : 0.0194 | precision@10: 0.0020
+Thu 06 Feb 2025 17:31:57 INFO  tail      : recall@10   : 0.0120 | mrr@10      : 0.0045 | ndcg@10     : 0.0063 | hit@10      : 0.0120 | precision@10: 0.0012
+Thu 06 Feb 2025 17:31:57 INFO  epoch 16 evaluating [time: 637.49s, valid_score: 0.006300]
+Thu 06 Feb 2025 17:31:58 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 17:33:12 INFO  epoch 17 training [time: 73.95s, train_loss1: 116.0065, train_loss2: 227.7584, train_loss3: 858.2315]
+Thu 06 Feb 2025 17:42:31 INFO  head      : recall@10   : 0.0158 | mrr@10      : 0.0069 | ndcg@10     : 0.0083 | hit@10      : 0.0198 | precision@10: 0.0020
+Thu 06 Feb 2025 17:42:31 INFO  tail      : recall@10   : 0.0121 | mrr@10      : 0.0045 | ndcg@10     : 0.0063 | hit@10      : 0.0121 | precision@10: 0.0012
+Thu 06 Feb 2025 17:42:31 INFO  epoch 17 evaluating [time: 558.65s, valid_score: 0.006300]
+Thu 06 Feb 2025 17:42:32 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 17:43:46 INFO  epoch 18 training [time: 73.97s, train_loss1: 114.3472, train_loss2: 228.9169, train_loss3: 858.3395]
+Thu 06 Feb 2025 17:53:00 INFO  head      : recall@10   : 0.0154 | mrr@10      : 0.0068 | ndcg@10     : 0.0082 | hit@10      : 0.0192 | precision@10: 0.0019
+Thu 06 Feb 2025 17:53:00 INFO  tail      : recall@10   : 0.0123 | mrr@10      : 0.0046 | ndcg@10     : 0.0063 | hit@10      : 0.0123 | precision@10: 0.0012
+Thu 06 Feb 2025 17:53:00 INFO  epoch 18 evaluating [time: 553.45s, valid_score: 0.006300]
+Thu 06 Feb 2025 17:53:01 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 17:54:15 INFO  epoch 19 training [time: 73.94s, train_loss1: 113.0390, train_loss2: 229.9019, train_loss3: 858.3967]
+Thu 06 Feb 2025 18:04:35 INFO  head      : recall@10   : 0.0155 | mrr@10      : 0.0066 | ndcg@10     : 0.0081 | hit@10      : 0.0193 | precision@10: 0.0019
+Thu 06 Feb 2025 18:04:35 INFO  tail      : recall@10   : 0.0123 | mrr@10      : 0.0046 | ndcg@10     : 0.0064 | hit@10      : 0.0123 | precision@10: 0.0012
+Thu 06 Feb 2025 18:04:35 INFO  epoch 19 evaluating [time: 619.83s, valid_score: 0.006400]
+Thu 06 Feb 2025 18:04:36 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 18:05:50 INFO  epoch 20 training [time: 74.01s, train_loss1: 111.7824, train_loss2: 230.8177, train_loss3: 858.4230]
+Thu 06 Feb 2025 18:16:18 INFO  head      : recall@10   : 0.0154 | mrr@10      : 0.0063 | ndcg@10     : 0.0079 | hit@10      : 0.0191 | precision@10: 0.0019
+Thu 06 Feb 2025 18:16:18 INFO  tail      : recall@10   : 0.0123 | mrr@10      : 0.0046 | ndcg@10     : 0.0064 | hit@10      : 0.0123 | precision@10: 0.0012
+Thu 06 Feb 2025 18:16:18 INFO  epoch 20 evaluating [time: 627.81s, valid_score: 0.006400]
+Thu 06 Feb 2025 18:16:20 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 18:17:34 INFO  epoch 21 training [time: 74.95s, train_loss1: 110.6847, train_loss2: 231.6607, train_loss3: 858.4574]
+Thu 06 Feb 2025 18:34:20 INFO  head      : recall@10   : 0.0154 | mrr@10      : 0.0066 | ndcg@10     : 0.0080 | hit@10      : 0.0193 | precision@10: 0.0019
+Thu 06 Feb 2025 18:34:20 INFO  tail      : recall@10   : 0.0126 | mrr@10      : 0.0047 | ndcg@10     : 0.0065 | hit@10      : 0.0126 | precision@10: 0.0013
+Thu 06 Feb 2025 18:34:20 INFO  epoch 21 evaluating [time: 1005.43s, valid_score: 0.006500]
+Thu 06 Feb 2025 18:34:22 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 18:35:37 INFO  epoch 22 training [time: 75.34s, train_loss1: 109.5826, train_loss2: 232.3934, train_loss3: 858.5139]
+Thu 06 Feb 2025 18:52:51 INFO  head      : recall@10   : 0.0154 | mrr@10      : 0.0066 | ndcg@10     : 0.0081 | hit@10      : 0.0194 | precision@10: 0.0020
+Thu 06 Feb 2025 18:52:51 INFO  tail      : recall@10   : 0.0123 | mrr@10      : 0.0046 | ndcg@10     : 0.0063 | hit@10      : 0.0123 | precision@10: 0.0012
+Thu 06 Feb 2025 18:52:51 INFO  epoch 22 evaluating [time: 1033.61s, valid_score: 0.006300]
+Thu 06 Feb 2025 18:54:06 INFO  epoch 23 training [time: 75.44s, train_loss1: 108.8337, train_loss2: 233.0045, train_loss3: 858.5476]
+Thu 06 Feb 2025 19:05:46 INFO  head      : recall@10   : 0.0157 | mrr@10      : 0.0067 | ndcg@10     : 0.0082 | hit@10      : 0.0196 | precision@10: 0.0020
+Thu 06 Feb 2025 19:05:46 INFO  tail      : recall@10   : 0.0125 | mrr@10      : 0.0047 | ndcg@10     : 0.0065 | hit@10      : 0.0125 | precision@10: 0.0012
+Thu 06 Feb 2025 19:05:46 INFO  epoch 23 evaluating [time: 699.46s, valid_score: 0.006500]
+Thu 06 Feb 2025 19:05:47 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 19:07:01 INFO  epoch 24 training [time: 74.03s, train_loss1: 108.1940, train_loss2: 233.5644, train_loss3: 858.5625]
+Thu 06 Feb 2025 19:17:46 INFO  head      : recall@10   : 0.0157 | mrr@10      : 0.0068 | ndcg@10     : 0.0083 | hit@10      : 0.0195 | precision@10: 0.0020
+Thu 06 Feb 2025 19:17:46 INFO  tail      : recall@10   : 0.0125 | mrr@10      : 0.0047 | ndcg@10     : 0.0065 | hit@10      : 0.0125 | precision@10: 0.0013
+Thu 06 Feb 2025 19:17:46 INFO  epoch 24 evaluating [time: 644.76s, valid_score: 0.006500]
+Thu 06 Feb 2025 19:17:47 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 19:19:01 INFO  epoch 25 training [time: 73.85s, train_loss1: 107.5468, train_loss2: 234.0055, train_loss3: 858.5972]
+Thu 06 Feb 2025 19:29:50 INFO  head      : recall@10   : 0.0162 | mrr@10      : 0.0069 | ndcg@10     : 0.0084 | hit@10      : 0.0200 | precision@10: 0.0020
+Thu 06 Feb 2025 19:29:50 INFO  tail      : recall@10   : 0.0125 | mrr@10      : 0.0047 | ndcg@10     : 0.0065 | hit@10      : 0.0125 | precision@10: 0.0012
+Thu 06 Feb 2025 19:29:50 INFO  epoch 25 evaluating [time: 648.35s, valid_score: 0.006500]
+Thu 06 Feb 2025 19:29:51 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 19:31:05 INFO  epoch 26 training [time: 73.87s, train_loss1: 106.9332, train_loss2: 234.4377, train_loss3: 858.6565]
+Thu 06 Feb 2025 19:40:10 INFO  head      : recall@10   : 0.0167 | mrr@10      : 0.0068 | ndcg@10     : 0.0085 | hit@10      : 0.0205 | precision@10: 0.0021
+Thu 06 Feb 2025 19:40:10 INFO  tail      : recall@10   : 0.0125 | mrr@10      : 0.0047 | ndcg@10     : 0.0065 | hit@10      : 0.0125 | precision@10: 0.0012
+Thu 06 Feb 2025 19:40:10 INFO  epoch 26 evaluating [time: 544.66s, valid_score: 0.006500]
+Thu 06 Feb 2025 19:40:11 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 19:41:23 INFO  epoch 27 training [time: 71.43s, train_loss1: 106.5044, train_loss2: 234.7992, train_loss3: 858.6803]
+Thu 06 Feb 2025 19:51:18 INFO  head      : recall@10   : 0.0164 | mrr@10      : 0.0069 | ndcg@10     : 0.0085 | hit@10      : 0.0204 | precision@10: 0.0020
+Thu 06 Feb 2025 19:51:18 INFO  tail      : recall@10   : 0.0124 | mrr@10      : 0.0047 | ndcg@10     : 0.0065 | hit@10      : 0.0124 | precision@10: 0.0012
+Thu 06 Feb 2025 19:51:18 INFO  epoch 27 evaluating [time: 595.82s, valid_score: 0.006500]
+Thu 06 Feb 2025 19:51:20 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 19:52:31 INFO  epoch 28 training [time: 71.55s, train_loss1: 106.1033, train_loss2: 235.0931, train_loss3: 858.6220]
+Thu 06 Feb 2025 20:03:30 INFO  head      : recall@10   : 0.0160 | mrr@10      : 0.0068 | ndcg@10     : 0.0084 | hit@10      : 0.0198 | precision@10: 0.0020
+Thu 06 Feb 2025 20:03:30 INFO  tail      : recall@10   : 0.0126 | mrr@10      : 0.0048 | ndcg@10     : 0.0066 | hit@10      : 0.0126 | precision@10: 0.0013
+Thu 06 Feb 2025 20:03:30 INFO  epoch 28 evaluating [time: 658.70s, valid_score: 0.006600]
+Thu 06 Feb 2025 20:03:32 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 20:04:43 INFO  epoch 29 training [time: 71.50s, train_loss1: 105.7624, train_loss2: 235.3454, train_loss3: 858.6329]
+Thu 06 Feb 2025 20:13:48 INFO  head      : recall@10   : 0.0163 | mrr@10      : 0.0069 | ndcg@10     : 0.0085 | hit@10      : 0.0202 | precision@10: 0.0020
+Thu 06 Feb 2025 20:13:48 INFO  tail      : recall@10   : 0.0124 | mrr@10      : 0.0047 | ndcg@10     : 0.0065 | hit@10      : 0.0124 | precision@10: 0.0012
+Thu 06 Feb 2025 20:13:48 INFO  epoch 29 evaluating [time: 544.92s, valid_score: 0.006500]
+Thu 06 Feb 2025 20:15:00 INFO  epoch 30 training [time: 71.41s, train_loss1: 105.6070, train_loss2: 235.5593, train_loss3: 858.5940]
+Thu 06 Feb 2025 20:25:50 INFO  head      : recall@10   : 0.0164 | mrr@10      : 0.0072 | ndcg@10     : 0.0087 | hit@10      : 0.0203 | precision@10: 0.0020
+Thu 06 Feb 2025 20:25:50 INFO  tail      : recall@10   : 0.0127 | mrr@10      : 0.0049 | ndcg@10     : 0.0067 | hit@10      : 0.0127 | precision@10: 0.0013
+Thu 06 Feb 2025 20:25:50 INFO  epoch 30 evaluating [time: 650.19s, valid_score: 0.006700]
+Thu 06 Feb 2025 20:25:51 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 20:27:03 INFO  epoch 31 training [time: 71.35s, train_loss1: 105.2565, train_loss2: 235.7246, train_loss3: 858.6165]
+Thu 06 Feb 2025 20:37:59 INFO  head      : recall@10   : 0.0158 | mrr@10      : 0.0070 | ndcg@10     : 0.0084 | hit@10      : 0.0196 | precision@10: 0.0020
+Thu 06 Feb 2025 20:37:59 INFO  tail      : recall@10   : 0.0127 | mrr@10      : 0.0048 | ndcg@10     : 0.0066 | hit@10      : 0.0127 | precision@10: 0.0013
+Thu 06 Feb 2025 20:37:59 INFO  epoch 31 evaluating [time: 656.04s, valid_score: 0.006600]
+Thu 06 Feb 2025 20:39:10 INFO  epoch 32 training [time: 71.42s, train_loss1: 104.9822, train_loss2: 235.8964, train_loss3: 858.6106]
+Thu 06 Feb 2025 20:49:21 INFO  head      : recall@10   : 0.0158 | mrr@10      : 0.0070 | ndcg@10     : 0.0084 | hit@10      : 0.0198 | precision@10: 0.0020
+Thu 06 Feb 2025 20:49:21 INFO  tail      : recall@10   : 0.0124 | mrr@10      : 0.0047 | ndcg@10     : 0.0065 | hit@10      : 0.0124 | precision@10: 0.0012
+Thu 06 Feb 2025 20:49:21 INFO  epoch 32 evaluating [time: 611.01s, valid_score: 0.006500]
+Thu 06 Feb 2025 20:50:33 INFO  epoch 33 training [time: 71.45s, train_loss1: 104.8591, train_loss2: 236.0280, train_loss3: 858.6180]
+Thu 06 Feb 2025 21:00:01 INFO  head      : recall@10   : 0.0159 | mrr@10      : 0.0070 | ndcg@10     : 0.0084 | hit@10      : 0.0199 | precision@10: 0.0020
+Thu 06 Feb 2025 21:00:01 INFO  tail      : recall@10   : 0.0127 | mrr@10      : 0.0049 | ndcg@10     : 0.0067 | hit@10      : 0.0127 | precision@10: 0.0013
+Thu 06 Feb 2025 21:00:01 INFO  epoch 33 evaluating [time: 568.54s, valid_score: 0.006700]
+Thu 06 Feb 2025 21:00:03 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 21:01:14 INFO  epoch 34 training [time: 71.39s, train_loss1: 104.7920, train_loss2: 236.1267, train_loss3: 858.6508]
+Thu 06 Feb 2025 21:12:06 INFO  head      : recall@10   : 0.0161 | mrr@10      : 0.0069 | ndcg@10     : 0.0084 | hit@10      : 0.0197 | precision@10: 0.0020
+Thu 06 Feb 2025 21:12:06 INFO  tail      : recall@10   : 0.0128 | mrr@10      : 0.0049 | ndcg@10     : 0.0067 | hit@10      : 0.0128 | precision@10: 0.0013
+Thu 06 Feb 2025 21:12:06 INFO  epoch 34 evaluating [time: 652.35s, valid_score: 0.006700]
+Thu 06 Feb 2025 21:12:08 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 21:13:20 INFO  epoch 35 training [time: 71.48s, train_loss1: 104.5402, train_loss2: 236.2241, train_loss3: 858.6292]
+Thu 06 Feb 2025 21:24:12 INFO  head      : recall@10   : 0.0159 | mrr@10      : 0.0069 | ndcg@10     : 0.0084 | hit@10      : 0.0198 | precision@10: 0.0020
+Thu 06 Feb 2025 21:24:12 INFO  tail      : recall@10   : 0.0128 | mrr@10      : 0.0048 | ndcg@10     : 0.0066 | hit@10      : 0.0128 | precision@10: 0.0013
+Thu 06 Feb 2025 21:24:12 INFO  epoch 35 evaluating [time: 652.91s, valid_score: 0.006600]
+Thu 06 Feb 2025 21:25:24 INFO  epoch 36 training [time: 71.31s, train_loss1: 104.3277, train_loss2: 236.3188, train_loss3: 858.6034]
+Thu 06 Feb 2025 21:34:32 INFO  head      : recall@10   : 0.0159 | mrr@10      : 0.0068 | ndcg@10     : 0.0083 | hit@10      : 0.0197 | precision@10: 0.0020
+Thu 06 Feb 2025 21:34:32 INFO  tail      : recall@10   : 0.0126 | mrr@10      : 0.0047 | ndcg@10     : 0.0066 | hit@10      : 0.0126 | precision@10: 0.0013
+Thu 06 Feb 2025 21:34:32 INFO  epoch 36 evaluating [time: 547.79s, valid_score: 0.006600]
+Thu 06 Feb 2025 21:35:43 INFO  epoch 37 training [time: 71.59s, train_loss1: 104.2942, train_loss2: 236.3765, train_loss3: 858.5988]
+Thu 06 Feb 2025 21:46:35 INFO  head      : recall@10   : 0.0160 | mrr@10      : 0.0067 | ndcg@10     : 0.0083 | hit@10      : 0.0199 | precision@10: 0.0020
+Thu 06 Feb 2025 21:46:35 INFO  tail      : recall@10   : 0.0128 | mrr@10      : 0.0048 | ndcg@10     : 0.0067 | hit@10      : 0.0128 | precision@10: 0.0013
+Thu 06 Feb 2025 21:46:35 INFO  epoch 37 evaluating [time: 652.04s, valid_score: 0.006700]
+Thu 06 Feb 2025 21:46:37 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 21:47:48 INFO  epoch 38 training [time: 71.49s, train_loss1: 104.1363, train_loss2: 236.4285, train_loss3: 858.5694]
+Thu 06 Feb 2025 21:58:38 INFO  head      : recall@10   : 0.0159 | mrr@10      : 0.0068 | ndcg@10     : 0.0083 | hit@10      : 0.0197 | precision@10: 0.0020
+Thu 06 Feb 2025 21:58:38 INFO  tail      : recall@10   : 0.0130 | mrr@10      : 0.0049 | ndcg@10     : 0.0067 | hit@10      : 0.0130 | precision@10: 0.0013
+Thu 06 Feb 2025 21:58:38 INFO  epoch 38 evaluating [time: 650.28s, valid_score: 0.006700]
+Thu 06 Feb 2025 21:58:40 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 21:59:51 INFO  epoch 39 training [time: 71.37s, train_loss1: 104.2334, train_loss2: 236.4497, train_loss3: 858.5354]
+Thu 06 Feb 2025 22:10:38 INFO  head      : recall@10   : 0.0160 | mrr@10      : 0.0070 | ndcg@10     : 0.0085 | hit@10      : 0.0199 | precision@10: 0.0020
+Thu 06 Feb 2025 22:10:38 INFO  tail      : recall@10   : 0.0129 | mrr@10      : 0.0048 | ndcg@10     : 0.0067 | hit@10      : 0.0129 | precision@10: 0.0013
+Thu 06 Feb 2025 22:10:38 INFO  epoch 39 evaluating [time: 646.70s, valid_score: 0.006700]
+Thu 06 Feb 2025 22:10:40 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 22:11:51 INFO  epoch 40 training [time: 71.65s, train_loss1: 104.1149, train_loss2: 236.4948, train_loss3: 858.5650]
+Thu 06 Feb 2025 22:21:03 INFO  head      : recall@10   : 0.0159 | mrr@10      : 0.0069 | ndcg@10     : 0.0084 | hit@10      : 0.0196 | precision@10: 0.0020
+Thu 06 Feb 2025 22:21:03 INFO  tail      : recall@10   : 0.0129 | mrr@10      : 0.0049 | ndcg@10     : 0.0067 | hit@10      : 0.0129 | precision@10: 0.0013
+Thu 06 Feb 2025 22:21:03 INFO  epoch 40 evaluating [time: 551.34s, valid_score: 0.006700]
+Thu 06 Feb 2025 22:21:04 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 22:22:16 INFO  epoch 41 training [time: 71.51s, train_loss1: 103.8712, train_loss2: 236.5120, train_loss3: 858.5290]
+Thu 06 Feb 2025 22:33:08 INFO  head      : recall@10   : 0.0159 | mrr@10      : 0.0069 | ndcg@10     : 0.0084 | hit@10      : 0.0198 | precision@10: 0.0020
+Thu 06 Feb 2025 22:33:08 INFO  tail      : recall@10   : 0.0130 | mrr@10      : 0.0049 | ndcg@10     : 0.0068 | hit@10      : 0.0130 | precision@10: 0.0013
+Thu 06 Feb 2025 22:33:08 INFO  epoch 41 evaluating [time: 652.11s, valid_score: 0.006800]
+Thu 06 Feb 2025 22:33:09 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 22:34:21 INFO  epoch 42 training [time: 71.58s, train_loss1: 103.9253, train_loss2: 236.5240, train_loss3: 858.5348]
+Thu 06 Feb 2025 22:45:20 INFO  head      : recall@10   : 0.0157 | mrr@10      : 0.0069 | ndcg@10     : 0.0083 | hit@10      : 0.0195 | precision@10: 0.0020
+Thu 06 Feb 2025 22:45:20 INFO  tail      : recall@10   : 0.0129 | mrr@10      : 0.0049 | ndcg@10     : 0.0067 | hit@10      : 0.0129 | precision@10: 0.0013
+Thu 06 Feb 2025 22:45:20 INFO  epoch 42 evaluating [time: 658.89s, valid_score: 0.006700]
+Thu 06 Feb 2025 22:46:31 INFO  epoch 43 training [time: 71.60s, train_loss1: 103.7665, train_loss2: 236.5446, train_loss3: 858.5633]
+Thu 06 Feb 2025 22:56:49 INFO  head      : recall@10   : 0.0159 | mrr@10      : 0.0070 | ndcg@10     : 0.0084 | hit@10      : 0.0197 | precision@10: 0.0020
+Thu 06 Feb 2025 22:56:49 INFO  tail      : recall@10   : 0.0129 | mrr@10      : 0.0049 | ndcg@10     : 0.0068 | hit@10      : 0.0129 | precision@10: 0.0013
+Thu 06 Feb 2025 22:56:49 INFO  epoch 43 evaluating [time: 617.28s, valid_score: 0.006800]
+Thu 06 Feb 2025 22:56:50 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 22:58:02 INFO  epoch 44 training [time: 71.48s, train_loss1: 103.9000, train_loss2: 236.5286, train_loss3: 858.5151]
+Thu 06 Feb 2025 23:09:01 INFO  head      : recall@10   : 0.0161 | mrr@10      : 0.0069 | ndcg@10     : 0.0085 | hit@10      : 0.0200 | precision@10: 0.0020
+Thu 06 Feb 2025 23:09:01 INFO  tail      : recall@10   : 0.0131 | mrr@10      : 0.0050 | ndcg@10     : 0.0068 | hit@10      : 0.0131 | precision@10: 0.0013
+Thu 06 Feb 2025 23:09:01 INFO  epoch 44 evaluating [time: 658.86s, valid_score: 0.006800]
+Thu 06 Feb 2025 23:09:02 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 23:10:13 INFO  epoch 45 training [time: 71.41s, train_loss1: 103.8122, train_loss2: 236.5524, train_loss3: 858.4841]
+Thu 06 Feb 2025 23:21:09 INFO  head      : recall@10   : 0.0158 | mrr@10      : 0.0071 | ndcg@10     : 0.0085 | hit@10      : 0.0197 | precision@10: 0.0020
+Thu 06 Feb 2025 23:21:09 INFO  tail      : recall@10   : 0.0131 | mrr@10      : 0.0050 | ndcg@10     : 0.0069 | hit@10      : 0.0131 | precision@10: 0.0013
+Thu 06 Feb 2025 23:21:09 INFO  epoch 45 evaluating [time: 655.98s, valid_score: 0.006900]
+Thu 06 Feb 2025 23:21:11 INFO  Saving current: saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Thu 06 Feb 2025 23:22:23 INFO  epoch 46 training [time: 71.52s, train_loss1: 103.5978, train_loss2: 236.5638, train_loss3: 858.4627]
+Thu 06 Feb 2025 23:32:19 INFO  head      : recall@10   : 0.0160 | mrr@10      : 0.0070 | ndcg@10     : 0.0085 | hit@10      : 0.0200 | precision@10: 0.0020
+Thu 06 Feb 2025 23:32:19 INFO  tail      : recall@10   : 0.0126 | mrr@10      : 0.0048 | ndcg@10     : 0.0066 | hit@10      : 0.0126 | precision@10: 0.0013
+Thu 06 Feb 2025 23:32:19 INFO  epoch 46 evaluating [time: 596.69s, valid_score: 0.006600]
+Thu 06 Feb 2025 23:33:31 INFO  epoch 47 training [time: 71.88s, train_loss1: 103.6208, train_loss2: 236.5656, train_loss3: 858.4783]
+Thu 06 Feb 2025 23:44:23 INFO  head      : recall@10   : 0.0160 | mrr@10      : 0.0071 | ndcg@10     : 0.0085 | hit@10      : 0.0198 | precision@10: 0.0020
+Thu 06 Feb 2025 23:44:23 INFO  tail      : recall@10   : 0.0126 | mrr@10      : 0.0048 | ndcg@10     : 0.0066 | hit@10      : 0.0126 | precision@10: 0.0013
+Thu 06 Feb 2025 23:44:23 INFO  epoch 47 evaluating [time: 652.33s, valid_score: 0.006600]
+Thu 06 Feb 2025 23:45:35 INFO  epoch 48 training [time: 71.54s, train_loss1: 103.6513, train_loss2: 236.5503, train_loss3: 858.4490]
+Thu 06 Feb 2025 23:56:32 INFO  head      : recall@10   : 0.0164 | mrr@10      : 0.0069 | ndcg@10     : 0.0085 | hit@10      : 0.0205 | precision@10: 0.0021
+Thu 06 Feb 2025 23:56:32 INFO  tail      : recall@10   : 0.0129 | mrr@10      : 0.0048 | ndcg@10     : 0.0067 | hit@10      : 0.0129 | precision@10: 0.0013
+Thu 06 Feb 2025 23:56:32 INFO  epoch 48 evaluating [time: 657.45s, valid_score: 0.006700]
+Thu 06 Feb 2025 23:57:44 INFO  epoch 49 training [time: 71.33s, train_loss1: 103.5619, train_loss2: 236.5472, train_loss3: 858.4631]
+Fri 07 Feb 2025 00:07:09 INFO  head      : recall@10   : 0.0164 | mrr@10      : 0.0071 | ndcg@10     : 0.0086 | hit@10      : 0.0202 | precision@10: 0.0020
+Fri 07 Feb 2025 00:07:09 INFO  tail      : recall@10   : 0.0129 | mrr@10      : 0.0049 | ndcg@10     : 0.0067 | hit@10      : 0.0129 | precision@10: 0.0013
+Fri 07 Feb 2025 00:07:09 INFO  epoch 49 evaluating [time: 565.22s, valid_score: 0.006700]
+Fri 07 Feb 2025 00:07:10 INFO  Loading model structure and parameters from saved\XSimGCL-Feb-06-2025_14-25-20.pth
+Fri 07 Feb 2025 00:47:11 INFO  head      : recall@10   : 0.0162 | mrr@10      : 0.0071 | ndcg@10     : 0.0090 | hit@10      : 0.0181 | precision@10: 0.0018
+Fri 07 Feb 2025 00:47:11 INFO  tail      : recall@10   : 0.0139 | mrr@10      : 0.0054 | ndcg@10     : 0.0074 | hit@10      : 0.0139 | precision@10: 0.0014
+Fri 07 Feb 2025 00:47:11 INFO  best valid : OrderedDict([('head', OrderedDict([('recall@10', 0.0158), ('mrr@10', 0.0071), ('ndcg@10', 0.0085), ('hit@10', 0.0197), ('precision@10', 0.002)])), ('tail', OrderedDict([('recall@10', 0.0131), ('mrr@10', 0.005), ('ndcg@10', 0.0069), ('hit@10', 0.0131), ('precision@10', 0.0013)]))])
+Fri 07 Feb 2025 00:47:11 INFO  test result: OrderedDict([('head', OrderedDict([('recall@10', 0.0162), ('mrr@10', 0.0071), ('ndcg@10', 0.009), ('hit@10', 0.0181), ('precision@10', 0.0018)])), ('tail', OrderedDict([('recall@10', 0.0139), ('mrr@10', 0.0054), ('ndcg@10', 0.0074), ('hit@10', 0.0139), ('precision@10', 0.0014)]))])

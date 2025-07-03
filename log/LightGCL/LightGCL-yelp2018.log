@@ -1,0 +1,194 @@
+Fri 25 Apr 2025 17:45:54 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/yelp2018
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 500
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 10
+stopping_step = 2
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}
+repeatable = False
+metrics = ['Recall', 'NDCG', 'Hit', 'Precision']
+topk = [10, 20]
+valid_metric = ndcg@10
+valid_metric_bigger = True
+eval_batch_size = 8196
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [0,inf)
+item_inter_num_interval = [0,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = None
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+numerical_features = []
+discretization = None
+kg_reverse_r = False
+entity_kg_num_interval = [0,inf)
+relation_kg_num_interval = [0,inf)
+MODEL_TYPE = ModelType.GENERAL
+embedding_size = 64
+n_layers = 2
+dropout = 0.1
+temp = 0.5
+lambda1 = 0.01
+lambda2 = 0.0001
+q = 5
+eps = 0.2
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+valid_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+test_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Fri 25 Apr 2025 17:46:12 INFO  yelp2018
+The number of users: 1326102
+Average actions of users: 3.9677739478365526
+The number of items: 174568
+Average actions of items: 30.141258084288555
+The number of inters: 5261669
+The sparsity of the dataset: 99.99772709147393%
+Remain Fields: ['user_id', 'item_id']
+Fri 25 Apr 2025 17:46:43 INFO  [Training]: train_batch_size = [500] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Fri 25 Apr 2025 17:46:43 INFO  [Evaluation]: eval_batch_size = [8196] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}]
+Fri 25 Apr 2025 17:46:52 INFO  LightGCL(
+  (act): LeakyReLU(negative_slope=0.5)
+  (reg_loss): EmbLoss()
+)
+Trainable parameters: 96042880
+Fri 25 Apr 2025 18:07:54 INFO  epoch 0 training [time: 1261.88s, train loss: 7551.0035]
+Fri 25 Apr 2025 18:28:59 INFO  epoch 1 training [time: 1264.76s, train loss: 7550.9326]
+Fri 25 Apr 2025 18:50:02 INFO  epoch 2 training [time: 1263.13s, train loss: 7550.9356]
+Fri 25 Apr 2025 19:11:08 INFO  epoch 3 training [time: 1265.51s, train loss: 7550.9320]
+Fri 25 Apr 2025 19:32:12 INFO  epoch 4 training [time: 1264.63s, train loss: 7550.9334]
+Fri 25 Apr 2025 19:53:16 INFO  epoch 5 training [time: 1263.35s, train loss: 7550.9359]
+Fri 25 Apr 2025 20:14:20 INFO  epoch 6 training [time: 1264.13s, train loss: 7550.9324]
+Fri 25 Apr 2025 20:35:23 INFO  epoch 7 training [time: 1263.20s, train loss: 7550.9340]
+Fri 25 Apr 2025 20:56:27 INFO  epoch 8 training [time: 1263.78s, train loss: 7550.9343]
+Fri 25 Apr 2025 21:17:30 INFO  epoch 9 training [time: 1262.94s, train loss: 7550.9329]
+Fri 25 Apr 2025 22:32:08 INFO  valid result: 
+recall@10 : 0.0006    recall@20 : 0.001    ndcg@10 : 0.0004    ndcg@20 : 0.0005    hit@10 : 0.0008    hit@20 : 0.0012    precision@10 : 0.0001    precision@20 : 0.0001
+Fri 25 Apr 2025 22:32:08 INFO  epoch 9 evaluating [time: 4477.88s, valid_score: 0.000400]
+Fri 25 Apr 2025 22:32:10 INFO  Saving current: saved\LightGCL-Apr-25-2025_17-46-52.pth
+Fri 25 Apr 2025 22:53:12 INFO  epoch 10 training [time: 1261.68s, train loss: 7550.9341]
+Fri 25 Apr 2025 23:14:15 INFO  epoch 11 training [time: 1262.69s, train loss: 7550.9333]
+Fri 25 Apr 2025 23:35:18 INFO  epoch 12 training [time: 1263.37s, train loss: 7550.9326]
+Fri 25 Apr 2025 23:56:27 INFO  epoch 13 training [time: 1269.21s, train loss: 7550.9338]
+Sat 26 Apr 2025 00:17:30 INFO  epoch 14 training [time: 1262.74s, train loss: 7550.9349]
+Sat 26 Apr 2025 00:38:34 INFO  epoch 15 training [time: 1264.16s, train loss: 7550.9330]
+Sat 26 Apr 2025 00:59:39 INFO  epoch 16 training [time: 1264.51s, train loss: 7550.9352]
+Sat 26 Apr 2025 01:20:42 INFO  epoch 17 training [time: 1263.11s, train loss: 7550.9319]
+Sat 26 Apr 2025 01:41:46 INFO  epoch 18 training [time: 1264.52s, train loss: 7550.9347]
+Sat 26 Apr 2025 02:02:49 INFO  epoch 19 training [time: 1263.26s, train loss: 7550.9337]
+Sat 26 Apr 2025 03:17:53 INFO  valid result: 
+recall@10 : 0.0007    recall@20 : 0.0012    ndcg@10 : 0.0004    ndcg@20 : 0.0005    hit@10 : 0.0009    hit@20 : 0.0015    precision@10 : 0.0001    precision@20 : 0.0001
+Sat 26 Apr 2025 03:17:53 INFO  epoch 19 evaluating [time: 4503.71s, valid_score: 0.000400]
+Sat 26 Apr 2025 03:17:56 INFO  Saving current: saved\LightGCL-Apr-25-2025_17-46-52.pth
+Sat 26 Apr 2025 03:38:57 INFO  epoch 20 training [time: 1261.35s, train loss: 7550.9336]
+Sat 26 Apr 2025 04:00:00 INFO  epoch 21 training [time: 1262.53s, train loss: 7550.9339]
+Sat 26 Apr 2025 04:21:03 INFO  epoch 22 training [time: 1262.89s, train loss: 7550.9342]
+Sat 26 Apr 2025 04:42:04 INFO  epoch 23 training [time: 1261.72s, train loss: 7550.9321]
+Sat 26 Apr 2025 05:03:08 INFO  epoch 24 training [time: 1263.85s, train loss: 7550.9338]
+Sat 26 Apr 2025 05:24:13 INFO  epoch 25 training [time: 1264.50s, train loss: 7550.9333]
+Sat 26 Apr 2025 05:45:15 INFO  epoch 26 training [time: 1262.57s, train loss: 7550.9329]
+Sat 26 Apr 2025 06:06:21 INFO  epoch 27 training [time: 1266.10s, train loss: 7550.9337]
+Sat 26 Apr 2025 06:27:24 INFO  epoch 28 training [time: 1263.10s, train loss: 7550.9342]
+Sat 26 Apr 2025 06:48:30 INFO  epoch 29 training [time: 1265.71s, train loss: 7550.9332]
+Sat 26 Apr 2025 08:03:40 INFO  valid result: 
+recall@10 : 0.0004    recall@20 : 0.0007    ndcg@10 : 0.0002    ndcg@20 : 0.0003    hit@10 : 0.0005    hit@20 : 0.0009    precision@10 : 0.0001    precision@20 : 0.0
+Sat 26 Apr 2025 08:03:40 INFO  epoch 29 evaluating [time: 4509.65s, valid_score: 0.000200]
+Sat 26 Apr 2025 08:24:44 INFO  epoch 30 training [time: 1264.72s, train loss: 7550.9349]
+Sat 26 Apr 2025 08:45:48 INFO  epoch 31 training [time: 1263.63s, train loss: 7550.9316]
+Sat 26 Apr 2025 09:06:49 INFO  epoch 32 training [time: 1261.37s, train loss: 7550.9338]
+Sat 26 Apr 2025 09:27:54 INFO  epoch 33 training [time: 1264.81s, train loss: 7550.9326]
+Sat 26 Apr 2025 09:48:56 INFO  epoch 34 training [time: 1261.59s, train loss: 7550.9316]
+Sat 26 Apr 2025 10:10:01 INFO  epoch 35 training [time: 1264.78s, train loss: 7550.9325]
+Sat 26 Apr 2025 10:31:05 INFO  epoch 36 training [time: 1264.20s, train loss: 7550.9321]
+Sat 26 Apr 2025 10:52:08 INFO  epoch 37 training [time: 1263.37s, train loss: 7550.9339]
+Sat 26 Apr 2025 11:13:15 INFO  epoch 38 training [time: 1266.55s, train loss: 7550.9344]
+Sat 26 Apr 2025 11:34:18 INFO  epoch 39 training [time: 1263.19s, train loss: 7550.9335]
+Sat 26 Apr 2025 12:49:32 INFO  valid result: 
+recall@10 : 0.0005    recall@20 : 0.0008    ndcg@10 : 0.0003    ndcg@20 : 0.0004    hit@10 : 0.0006    hit@20 : 0.0011    precision@10 : 0.0001    precision@20 : 0.0001
+Sat 26 Apr 2025 12:49:32 INFO  epoch 39 evaluating [time: 4513.79s, valid_score: 0.000300]
+Sat 26 Apr 2025 13:10:34 INFO  epoch 40 training [time: 1261.86s, train loss: 7550.9343]
+Sat 26 Apr 2025 13:31:38 INFO  epoch 41 training [time: 1263.84s, train loss: 7550.9323]
+Sat 26 Apr 2025 13:52:40 INFO  epoch 42 training [time: 1262.54s, train loss: 7550.9318]
+Sat 26 Apr 2025 14:13:42 INFO  epoch 43 training [time: 1261.84s, train loss: 7550.9336]
+Sat 26 Apr 2025 14:34:45 INFO  epoch 44 training [time: 1263.20s, train loss: 7550.9350]
+Sat 26 Apr 2025 14:55:46 INFO  epoch 45 training [time: 1260.79s, train loss: 7550.9322]
+Sat 26 Apr 2025 15:16:49 INFO  epoch 46 training [time: 1263.06s, train loss: 7550.9342]
+Sat 26 Apr 2025 15:37:52 INFO  epoch 47 training [time: 1262.87s, train loss: 7550.9312]
+Sat 26 Apr 2025 15:58:56 INFO  epoch 48 training [time: 1264.69s, train loss: 7550.9343]
+Sat 26 Apr 2025 16:20:02 INFO  epoch 49 training [time: 1265.96s, train loss: 7550.9346]
+Sat 26 Apr 2025 17:35:14 INFO  valid result: 
+recall@10 : 0.0004    recall@20 : 0.0007    ndcg@10 : 0.0002    ndcg@20 : 0.0003    hit@10 : 0.0005    hit@20 : 0.0009    precision@10 : 0.0    precision@20 : 0.0
+Sat 26 Apr 2025 17:35:14 INFO  epoch 49 evaluating [time: 4511.05s, valid_score: 0.000200]
+Sat 26 Apr 2025 17:35:14 INFO  Finished training, best eval result in epoch 19
+Sat 26 Apr 2025 17:35:15 INFO  Loading model structure and parameters from saved\LightGCL-Apr-25-2025_17-46-52.pth
+Sat 26 Apr 2025 20:01:46 INFO  valid result: 
+recall@10 : 0.0008    recall@20 : 0.0013    ndcg@10 : 0.0005    ndcg@20 : 0.0006    hit@10 : 0.0009    hit@20 : 0.0015    precision@10 : 0.0001    precision@20 : 0.0001
+Sat 26 Apr 2025 20:01:46 INFO  best valid : OrderedDict([('recall@10', 0.0007), ('recall@20', 0.0012), ('ndcg@10', 0.0004), ('ndcg@20', 0.0005), ('hit@10', 0.0009), ('hit@20', 0.0015), ('precision@10', 0.0001), ('precision@20', 0.0001)])
+Sat 26 Apr 2025 20:01:46 INFO  test result: OrderedDict([('recall@10', 0.0008), ('recall@20', 0.0013), ('ndcg@10', 0.0005), ('ndcg@20', 0.0006), ('hit@10', 0.0009), ('hit@20', 0.0015), ('precision@10', 0.0001), ('precision@20', 0.0001)])

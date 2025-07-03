@@ -1,0 +1,309 @@
+Mon 26 May 2025 00:09:44 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/Amazon_Appliances
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 300
+train_batch_size = 500
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 10
+stopping_step = 2
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}
+repeatable = False
+metrics = ['Recall', 'NDCG', 'Hit', 'Precision']
+topk = [10, 20]
+valid_metric = ndcg@10
+valid_metric_bigger = True
+eval_batch_size = 8196
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [0,inf)
+item_inter_num_interval = [0,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = None
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = True
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+n_layers = 2
+reg_weight = 0.0001
+ssl_temp = 0.5
+ssl_reg = 1e-07
+hyper_layers = 1
+alpha = 1
+proto_reg = 8e-08
+num_clusters = 1000
+m_step = 1
+warm_up_step = 20
+numerical_features = []
+discretization = None
+kg_reverse_r = False
+entity_kg_num_interval = [0,inf)
+relation_kg_num_interval = [0,inf)
+MODEL_TYPE = ModelType.GENERAL
+lambda = 0.1
+eps = 0.2
+temperature = 0.2
+layer_cl = 1
+q = 5
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+valid_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+test_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Mon 26 May 2025 00:09:46 INFO  Amazon_Appliances
+The number of users: 515651
+Average actions of users: 1.1689653834965577
+The number of items: 30253
+Average actions of items: 19.925195028427872
+The number of inters: 602777
+The sparsity of the dataset: 99.99613604232134%
+Remain Fields: ['user_id', 'item_id']
+Mon 26 May 2025 00:09:52 INFO  [Training]: train_batch_size = [500] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Mon 26 May 2025 00:09:52 INFO  [Evaluation]: eval_batch_size = [8196] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}]
+Mon 26 May 2025 00:09:52 INFO  NCL(
+  (user_embedding): Embedding(515651, 64)
+  (item_embedding): Embedding(30253, 64)
+  (gcn_conv): LightGCNConv(64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+)
+Trainable parameters: 34937856
+Mon 26 May 2025 00:09:52 INFO  Running E-step ! 
+Mon 26 May 2025 00:09:52 INFO  Loading faiss with AVX2 support.
+Mon 26 May 2025 00:09:52 INFO  Successfully loaded faiss with AVX2 support.
+Mon 26 May 2025 00:10:41 INFO  epoch 0 training [time: 45.73s, train_loss1: 234.7262, train_loss2: 1.0279]
+Mon 26 May 2025 00:10:41 INFO  Running E-step ! 
+Mon 26 May 2025 00:11:30 INFO  epoch 1 training [time: 45.50s, train_loss1: 80.5379, train_loss2: 1.0268]
+Mon 26 May 2025 00:11:30 INFO  Running E-step ! 
+Mon 26 May 2025 00:12:19 INFO  epoch 2 training [time: 45.51s, train_loss1: 48.6356, train_loss2: 1.0268]
+Mon 26 May 2025 00:12:19 INFO  Running E-step ! 
+Mon 26 May 2025 00:13:07 INFO  epoch 3 training [time: 45.58s, train_loss1: 33.5980, train_loss2: 1.0268]
+Mon 26 May 2025 00:13:07 INFO  Running E-step ! 
+Mon 26 May 2025 00:13:56 INFO  epoch 4 training [time: 45.59s, train_loss1: 24.6633, train_loss2: 1.0268]
+Mon 26 May 2025 00:13:56 INFO  Running E-step ! 
+Mon 26 May 2025 00:14:45 INFO  epoch 5 training [time: 45.43s, train_loss1: 18.7483, train_loss2: 1.0268]
+Mon 26 May 2025 00:14:45 INFO  Running E-step ! 
+Mon 26 May 2025 00:15:33 INFO  epoch 6 training [time: 45.61s, train_loss1: 14.6953, train_loss2: 1.0268]
+Mon 26 May 2025 00:15:33 INFO  Running E-step ! 
+Mon 26 May 2025 00:16:24 INFO  epoch 7 training [time: 45.73s, train_loss1: 11.6044, train_loss2: 1.0268]
+Mon 26 May 2025 00:16:24 INFO  Running E-step ! 
+Mon 26 May 2025 00:17:12 INFO  epoch 8 training [time: 45.55s, train_loss1: 9.2150, train_loss2: 1.0268]
+Mon 26 May 2025 00:17:12 INFO  Running E-step ! 
+Mon 26 May 2025 00:18:01 INFO  epoch 9 training [time: 45.47s, train_loss1: 7.4407, train_loss2: 1.0268]
+Mon 26 May 2025 00:18:30 INFO  valid result: 
+recall@10 : 0.0826    recall@20 : 0.0965    ndcg@10 : 0.0709    ndcg@20 : 0.0743    hit@10 : 0.0828    hit@20 : 0.0966    precision@10 : 0.0083    precision@20 : 0.0049
+Mon 26 May 2025 00:18:30 INFO  epoch 9 evaluating [time: 28.53s, valid_score: 0.070900]
+Mon 26 May 2025 00:18:31 INFO  Saving current: saved\NCL-May-26-2025_00-09-52.pth
+Mon 26 May 2025 00:18:31 INFO  Saving current best: saved\NCL-May-26-2025_00-09-52.pth
+Mon 26 May 2025 00:18:31 INFO  Running E-step ! 
+Mon 26 May 2025 00:19:20 INFO  epoch 10 training [time: 45.58s, train_loss1: 6.0196, train_loss2: 1.0268]
+Mon 26 May 2025 00:19:20 INFO  Running E-step ! 
+Mon 26 May 2025 00:20:09 INFO  epoch 11 training [time: 45.72s, train_loss1: 4.8585, train_loss2: 1.0268]
+Mon 26 May 2025 00:20:09 INFO  Running E-step ! 
+Mon 26 May 2025 00:20:57 INFO  epoch 12 training [time: 45.53s, train_loss1: 3.9166, train_loss2: 1.0268]
+Mon 26 May 2025 00:20:57 INFO  Running E-step ! 
+Mon 26 May 2025 00:21:46 INFO  epoch 13 training [time: 45.39s, train_loss1: 3.1966, train_loss2: 1.0268]
+Mon 26 May 2025 00:21:46 INFO  Running E-step ! 
+Mon 26 May 2025 00:22:35 INFO  epoch 14 training [time: 45.44s, train_loss1: 2.6447, train_loss2: 1.0268]
+Mon 26 May 2025 00:22:35 INFO  Running E-step ! 
+Mon 26 May 2025 00:23:23 INFO  epoch 15 training [time: 45.60s, train_loss1: 2.0908, train_loss2: 1.0268]
+Mon 26 May 2025 00:23:23 INFO  Running E-step ! 
+Mon 26 May 2025 00:24:12 INFO  epoch 16 training [time: 45.45s, train_loss1: 1.7117, train_loss2: 1.0268]
+Mon 26 May 2025 00:24:12 INFO  Running E-step ! 
+Mon 26 May 2025 00:25:01 INFO  epoch 17 training [time: 45.43s, train_loss1: 1.3969, train_loss2: 1.0268]
+Mon 26 May 2025 00:25:01 INFO  Running E-step ! 
+Mon 26 May 2025 00:25:50 INFO  epoch 18 training [time: 45.55s, train_loss1: 1.0942, train_loss2: 1.0268]
+Mon 26 May 2025 00:25:50 INFO  Running E-step ! 
+Mon 26 May 2025 00:26:39 INFO  epoch 19 training [time: 45.54s, train_loss1: 0.9412, train_loss2: 1.0268]
+Mon 26 May 2025 00:27:08 INFO  valid result: 
+recall@10 : 0.0827    recall@20 : 0.0944    ndcg@10 : 0.0723    ndcg@20 : 0.0752    hit@10 : 0.0828    hit@20 : 0.0946    precision@10 : 0.0083    precision@20 : 0.0047
+Mon 26 May 2025 00:27:08 INFO  epoch 19 evaluating [time: 28.94s, valid_score: 0.072300]
+Mon 26 May 2025 00:27:09 INFO  Saving current: saved\NCL-May-26-2025_00-09-52.pth
+Mon 26 May 2025 00:27:09 INFO  Saving current best: saved\NCL-May-26-2025_00-09-52.pth
+Mon 26 May 2025 00:27:09 INFO  Running E-step ! 
+Mon 26 May 2025 00:27:59 INFO  epoch 20 training [time: 47.07s, train_loss1: 0.7308, train_loss2: 1.0268, train_loss3: 0.4893]
+Mon 26 May 2025 00:27:59 INFO  Running E-step ! 
+Mon 26 May 2025 00:28:50 INFO  epoch 21 training [time: 47.06s, train_loss1: 0.5798, train_loss2: 1.0268, train_loss3: 0.4862]
+Mon 26 May 2025 00:28:50 INFO  Running E-step ! 
+Mon 26 May 2025 00:29:40 INFO  epoch 22 training [time: 47.04s, train_loss1: 0.5098, train_loss2: 1.0268, train_loss3: 0.4844]
+Mon 26 May 2025 00:29:40 INFO  Running E-step ! 
+Mon 26 May 2025 00:30:31 INFO  epoch 23 training [time: 47.07s, train_loss1: 0.4526, train_loss2: 1.0268, train_loss3: 0.4825]
+Mon 26 May 2025 00:30:31 INFO  Running E-step ! 
+Mon 26 May 2025 00:31:21 INFO  epoch 24 training [time: 47.05s, train_loss1: 0.3824, train_loss2: 1.0268, train_loss3: 0.4807]
+Mon 26 May 2025 00:31:21 INFO  Running E-step ! 
+Mon 26 May 2025 00:32:12 INFO  epoch 25 training [time: 47.20s, train_loss1: 0.3057, train_loss2: 1.0268, train_loss3: 0.4789]
+Mon 26 May 2025 00:32:12 INFO  Running E-step ! 
+Mon 26 May 2025 00:33:03 INFO  epoch 26 training [time: 47.11s, train_loss1: 0.2530, train_loss2: 1.0268, train_loss3: 0.4780]
+Mon 26 May 2025 00:33:03 INFO  Running E-step ! 
+Mon 26 May 2025 00:33:54 INFO  epoch 27 training [time: 47.01s, train_loss1: 0.2650, train_loss2: 1.0268, train_loss3: 0.4765]
+Mon 26 May 2025 00:33:54 INFO  Running E-step ! 
+Mon 26 May 2025 00:34:44 INFO  epoch 28 training [time: 47.25s, train_loss1: 0.2085, train_loss2: 1.0268, train_loss3: 0.4743]
+Mon 26 May 2025 00:34:44 INFO  Running E-step ! 
+Mon 26 May 2025 00:35:35 INFO  epoch 29 training [time: 47.00s, train_loss1: 0.2090, train_loss2: 1.0268, train_loss3: 0.4727]
+Mon 26 May 2025 00:36:03 INFO  valid result: 
+recall@10 : 0.0847    recall@20 : 0.0979    ndcg@10 : 0.0728    ndcg@20 : 0.0761    hit@10 : 0.0849    hit@20 : 0.098    precision@10 : 0.0085    precision@20 : 0.0049
+Mon 26 May 2025 00:36:03 INFO  epoch 29 evaluating [time: 28.16s, valid_score: 0.072800]
+Mon 26 May 2025 00:36:04 INFO  Saving current: saved\NCL-May-26-2025_00-09-52.pth
+Mon 26 May 2025 00:36:04 INFO  Saving current best: saved\NCL-May-26-2025_00-09-52.pth
+Mon 26 May 2025 00:36:04 INFO  Running E-step ! 
+Mon 26 May 2025 00:36:55 INFO  epoch 30 training [time: 47.26s, train_loss1: 0.1482, train_loss2: 1.0267, train_loss3: 0.4705]
+Mon 26 May 2025 00:36:55 INFO  Running E-step ! 
+Mon 26 May 2025 00:37:46 INFO  epoch 31 training [time: 46.96s, train_loss1: 0.1480, train_loss2: 1.0267, train_loss3: 0.4684]
+Mon 26 May 2025 00:37:46 INFO  Running E-step ! 
+Mon 26 May 2025 00:38:37 INFO  epoch 32 training [time: 47.10s, train_loss1: 0.1499, train_loss2: 1.0267, train_loss3: 0.4669]
+Mon 26 May 2025 00:38:37 INFO  Running E-step ! 
+Mon 26 May 2025 00:39:27 INFO  epoch 33 training [time: 46.99s, train_loss1: 0.1394, train_loss2: 1.0267, train_loss3: 0.4650]
+Mon 26 May 2025 00:39:27 INFO  Running E-step ! 
+Mon 26 May 2025 00:40:18 INFO  epoch 34 training [time: 47.10s, train_loss1: 0.1251, train_loss2: 1.0267, train_loss3: 0.4638]
+Mon 26 May 2025 00:40:18 INFO  Running E-step ! 
+Mon 26 May 2025 00:41:08 INFO  epoch 35 training [time: 47.00s, train_loss1: 0.1262, train_loss2: 1.0267, train_loss3: 0.4626]
+Mon 26 May 2025 00:41:08 INFO  Running E-step ! 
+Mon 26 May 2025 00:41:59 INFO  epoch 36 training [time: 47.07s, train_loss1: 0.1043, train_loss2: 1.0267, train_loss3: 0.4614]
+Mon 26 May 2025 00:41:59 INFO  Running E-step ! 
+Mon 26 May 2025 00:42:50 INFO  epoch 37 training [time: 46.91s, train_loss1: 0.1597, train_loss2: 1.0267, train_loss3: 0.4601]
+Mon 26 May 2025 00:42:50 INFO  Running E-step ! 
+Mon 26 May 2025 00:43:39 INFO  epoch 38 training [time: 45.32s, train_loss1: 0.0890, train_loss2: 1.0268, train_loss3: 0.4594]
+Mon 26 May 2025 00:43:39 INFO  Running E-step ! 
+Mon 26 May 2025 00:44:27 INFO  epoch 39 training [time: 45.14s, train_loss1: 0.0736, train_loss2: 1.0268, train_loss3: 0.4582]
+Mon 26 May 2025 00:44:57 INFO  valid result: 
+recall@10 : 0.0859    recall@20 : 0.0979    ndcg@10 : 0.0746    ndcg@20 : 0.0776    hit@10 : 0.0861    hit@20 : 0.0982    precision@10 : 0.0086    precision@20 : 0.0049
+Mon 26 May 2025 00:44:57 INFO  epoch 39 evaluating [time: 29.09s, valid_score: 0.074600]
+Mon 26 May 2025 00:44:58 INFO  Saving current: saved\NCL-May-26-2025_00-09-52.pth
+Mon 26 May 2025 00:44:58 INFO  Saving current best: saved\NCL-May-26-2025_00-09-52.pth
+Mon 26 May 2025 00:44:58 INFO  Running E-step ! 
+Mon 26 May 2025 00:45:49 INFO  epoch 40 training [time: 47.30s, train_loss1: 0.0831, train_loss2: 1.0268, train_loss3: 0.4577]
+Mon 26 May 2025 00:45:49 INFO  Running E-step ! 
+Mon 26 May 2025 00:46:40 INFO  epoch 41 training [time: 47.49s, train_loss1: 0.1084, train_loss2: 1.0268, train_loss3: 0.4570]
+Mon 26 May 2025 00:46:40 INFO  Running E-step ! 
+Mon 26 May 2025 00:47:31 INFO  epoch 42 training [time: 47.40s, train_loss1: 0.1346, train_loss2: 1.0268, train_loss3: 0.4558]
+Mon 26 May 2025 00:47:31 INFO  Running E-step ! 
+Mon 26 May 2025 00:48:22 INFO  epoch 43 training [time: 47.39s, train_loss1: 0.1113, train_loss2: 1.0268, train_loss3: 0.4551]
+Mon 26 May 2025 00:48:22 INFO  Running E-step ! 
+Mon 26 May 2025 00:49:13 INFO  epoch 44 training [time: 47.30s, train_loss1: 0.0804, train_loss2: 1.0269, train_loss3: 0.4547]
+Mon 26 May 2025 00:49:13 INFO  Running E-step ! 
+Mon 26 May 2025 00:50:04 INFO  epoch 45 training [time: 47.26s, train_loss1: 0.0988, train_loss2: 1.0269, train_loss3: 0.4546]
+Mon 26 May 2025 00:50:04 INFO  Running E-step ! 
+Mon 26 May 2025 00:50:54 INFO  epoch 46 training [time: 47.25s, train_loss1: 0.0907, train_loss2: 1.0269, train_loss3: 0.4537]
+Mon 26 May 2025 00:50:54 INFO  Running E-step ! 
+Mon 26 May 2025 00:51:45 INFO  epoch 47 training [time: 47.22s, train_loss1: 0.0959, train_loss2: 1.0269, train_loss3: 0.4531]
+Mon 26 May 2025 00:51:45 INFO  Running E-step ! 
+Mon 26 May 2025 00:52:36 INFO  epoch 48 training [time: 47.27s, train_loss1: 0.0935, train_loss2: 1.0269, train_loss3: 0.4523]
+Mon 26 May 2025 00:52:36 INFO  Running E-step ! 
+Mon 26 May 2025 00:53:27 INFO  epoch 49 training [time: 47.37s, train_loss1: 0.0808, train_loss2: 1.0269, train_loss3: 0.4520]
+Mon 26 May 2025 00:53:55 INFO  valid result: 
+recall@10 : 0.0854    recall@20 : 0.0974    ndcg@10 : 0.0732    ndcg@20 : 0.0763    hit@10 : 0.0855    hit@20 : 0.0976    precision@10 : 0.0086    precision@20 : 0.0049
+Mon 26 May 2025 00:53:55 INFO  epoch 49 evaluating [time: 28.22s, valid_score: 0.073200]
+Mon 26 May 2025 00:53:55 INFO  Running E-step ! 
+Mon 26 May 2025 00:54:47 INFO  epoch 50 training [time: 47.38s, train_loss1: 0.0917, train_loss2: 1.0268, train_loss3: 0.4520]
+Mon 26 May 2025 00:54:47 INFO  Running E-step ! 
+Mon 26 May 2025 00:55:37 INFO  epoch 51 training [time: 47.20s, train_loss1: 0.0787, train_loss2: 1.0268, train_loss3: 0.4512]
+Mon 26 May 2025 00:55:37 INFO  Running E-step ! 
+Mon 26 May 2025 00:56:28 INFO  epoch 52 training [time: 47.34s, train_loss1: 0.0984, train_loss2: 1.0268, train_loss3: 0.4511]
+Mon 26 May 2025 00:56:28 INFO  Running E-step ! 
+Mon 26 May 2025 00:57:19 INFO  epoch 53 training [time: 47.37s, train_loss1: 0.0988, train_loss2: 1.0268, train_loss3: 0.4510]
+Mon 26 May 2025 00:57:19 INFO  Running E-step ! 
+Mon 26 May 2025 00:58:10 INFO  epoch 54 training [time: 47.37s, train_loss1: 0.0755, train_loss2: 1.0268, train_loss3: 0.4508]
+Mon 26 May 2025 00:58:10 INFO  Running E-step ! 
+Mon 26 May 2025 00:59:01 INFO  epoch 55 training [time: 47.32s, train_loss1: 0.0892, train_loss2: 1.0268, train_loss3: 0.4533]
+Mon 26 May 2025 00:59:01 INFO  Running E-step ! 
+Mon 26 May 2025 00:59:52 INFO  epoch 56 training [time: 47.29s, train_loss1: 0.1070, train_loss2: 1.0268, train_loss3: 0.4518]
+Mon 26 May 2025 00:59:52 INFO  Running E-step ! 
+Mon 26 May 2025 01:00:42 INFO  epoch 57 training [time: 47.21s, train_loss1: 0.0798, train_loss2: 1.0268, train_loss3: 0.4514]
+Mon 26 May 2025 01:00:42 INFO  Running E-step ! 
+Mon 26 May 2025 01:01:34 INFO  epoch 58 training [time: 47.67s, train_loss1: 0.0897, train_loss2: 1.0268, train_loss3: 0.4514]
+Mon 26 May 2025 01:01:34 INFO  Running E-step ! 
+Mon 26 May 2025 01:02:25 INFO  epoch 59 training [time: 47.28s, train_loss1: 0.0914, train_loss2: 1.0268, train_loss3: 0.4511]
+Mon 26 May 2025 01:02:53 INFO  valid result: 
+recall@10 : 0.0857    recall@20 : 0.0967    ndcg@10 : 0.0735    ndcg@20 : 0.0763    hit@10 : 0.0859    hit@20 : 0.0969    precision@10 : 0.0086    precision@20 : 0.0049
+Mon 26 May 2025 01:02:53 INFO  epoch 59 evaluating [time: 28.12s, valid_score: 0.073500]
+Mon 26 May 2025 01:02:53 INFO  Running E-step ! 
+Mon 26 May 2025 01:03:44 INFO  epoch 60 training [time: 47.47s, train_loss1: 0.0764, train_loss2: 1.0269, train_loss3: 0.4535]
+Mon 26 May 2025 01:03:44 INFO  Running E-step ! 
+Mon 26 May 2025 01:04:35 INFO  epoch 61 training [time: 47.31s, train_loss1: 0.0695, train_loss2: 1.0269, train_loss3: 0.4508]
+Mon 26 May 2025 01:04:35 INFO  Running E-step ! 
+Mon 26 May 2025 01:05:25 INFO  epoch 62 training [time: 47.28s, train_loss1: 0.0856, train_loss2: 1.0268, train_loss3: 0.4496]
+Mon 26 May 2025 01:05:25 INFO  Running E-step ! 
+Mon 26 May 2025 01:06:16 INFO  epoch 63 training [time: 47.31s, train_loss1: 0.0932, train_loss2: 1.0268, train_loss3: 0.4492]
+Mon 26 May 2025 01:06:16 INFO  Running E-step ! 
+Mon 26 May 2025 01:07:07 INFO  epoch 64 training [time: 47.19s, train_loss1: 0.1021, train_loss2: 1.0268, train_loss3: 0.4489]
+Mon 26 May 2025 01:07:07 INFO  Running E-step ! 
+Mon 26 May 2025 01:07:58 INFO  epoch 65 training [time: 47.23s, train_loss1: 0.0841, train_loss2: 1.0268, train_loss3: 0.4486]
+Mon 26 May 2025 01:07:58 INFO  Running E-step ! 
+Mon 26 May 2025 01:08:49 INFO  epoch 66 training [time: 47.51s, train_loss1: 0.1003, train_loss2: 1.0270, train_loss3: 0.4572]
+Mon 26 May 2025 01:08:49 INFO  Running E-step ! 
+Mon 26 May 2025 01:09:40 INFO  epoch 67 training [time: 47.41s, train_loss1: 0.0773, train_loss2: 1.0270, train_loss3: 0.4536]
+Mon 26 May 2025 01:09:40 INFO  Running E-step ! 
+Mon 26 May 2025 01:10:31 INFO  epoch 68 training [time: 47.39s, train_loss1: 0.0815, train_loss2: 1.0269, train_loss3: 0.4504]
+Mon 26 May 2025 01:10:31 INFO  Running E-step ! 
+Mon 26 May 2025 01:11:22 INFO  epoch 69 training [time: 47.35s, train_loss1: 0.1063, train_loss2: 1.0268, train_loss3: 0.4487]
+Mon 26 May 2025 01:11:50 INFO  valid result: 
+recall@10 : 0.0853    recall@20 : 0.0964    ndcg@10 : 0.0734    ndcg@20 : 0.0762    hit@10 : 0.0855    hit@20 : 0.0966    precision@10 : 0.0086    precision@20 : 0.0048
+Mon 26 May 2025 01:11:50 INFO  epoch 69 evaluating [time: 28.02s, valid_score: 0.073400]
+Mon 26 May 2025 01:11:50 INFO  Finished training, best eval result in epoch 39
+Mon 26 May 2025 01:11:50 INFO  Loading model structure and parameters from saved\NCL-May-26-2025_00-09-52.pth
+Mon 26 May 2025 01:15:20 INFO  valid result: 
+recall@10 : 0.1595    recall@20 : 0.1705    ndcg@10 : 0.1471    ndcg@20 : 0.1499    hit@10 : 0.1595    hit@20 : 0.1705    precision@10 : 0.016    precision@20 : 0.0085
+Mon 26 May 2025 01:15:20 INFO  best valid : OrderedDict([('recall@10', 0.0859), ('recall@20', 0.0979), ('ndcg@10', 0.0746), ('ndcg@20', 0.0776), ('hit@10', 0.0861), ('hit@20', 0.0982), ('precision@10', 0.0086), ('precision@20', 0.0049)])
+Mon 26 May 2025 01:15:20 INFO  test result: OrderedDict([('recall@10', 0.1595), ('recall@20', 0.1705), ('ndcg@10', 0.1471), ('ndcg@20', 0.1499), ('hit@10', 0.1595), ('hit@20', 0.1705), ('precision@10', 0.016), ('precision@20', 0.0085)])

@@ -1,0 +1,14 @@
+embedding_size: 64              # (int) The embedding size of users and items.
+n_layers: 2                     # (int) The number of layers in LightGCL.
+dropout: 0.1                    # (float) The dropout ratio.
+temp: 0.8                       # (float) The temperature in softmax.
+lambda1: 0.01                   # (float) The hyperparameter to control the strengths of SSL.
+lambda2: 1e-04                  # (float) The L2 regularization weight.
+q: 5                            # (int) A slightly overestimated rank of the adjacency matrix.
+
+eval_step: 10
+epochs: 500
+train_batch_size: 500
+eval_batch_size: 8196
+
+eps: 0.2

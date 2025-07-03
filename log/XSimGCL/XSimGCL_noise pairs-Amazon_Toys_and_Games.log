@@ -1,0 +1,194 @@
+Thu 20 Mar 2025 06:43:45 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/Amazon_Toys_and_Games
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 500
+train_batch_size = 500
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 10
+stopping_step = 2
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}
+repeatable = False
+metrics = ['Recall', 'NDCG', 'Hit', 'Precision']
+topk = [10, 20]
+valid_metric = ndcg@10
+valid_metric_bigger = True
+eval_batch_size = 8196
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [0,inf)
+item_inter_num_interval = [0,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = None
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = True
+enable_amp = False
+enable_scaler = False
+transform = None
+numerical_features = []
+discretization = None
+kg_reverse_r = False
+entity_kg_num_interval = [0,inf)
+relation_kg_num_interval = [0,inf)
+MODEL_TYPE = ModelType.GENERAL
+embedding_size = 64
+n_layers = 2
+reg_weight = 0.0001
+lambda = 0.1
+eps = 0.1
+temperature = 0.2
+layer_cl = 1
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+valid_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+test_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Thu 20 Mar 2025 06:43:53 INFO  Amazon_Toys_and_Games
+The number of users: 1342912
+Average actions of users: 1.677528145945636
+The number of items: 327699
+Average actions of items: 6.874533869599448
+The number of inters: 2252771
+The sparsity of the dataset: 99.99948808910104%
+Remain Fields: ['user_id', 'item_id']
+Thu 20 Mar 2025 06:43:55 INFO  Generated noise pairs: 20831
+Thu 20 Mar 2025 06:43:55 INFO  First few noise pairs: [(7, 324885), (14, 324791), (14, 91500), (25, 241704), (25, 231988)]
+Thu 20 Mar 2025 06:44:26 INFO  [Training]: train_batch_size = [500] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Thu 20 Mar 2025 06:44:26 INFO  [Evaluation]: eval_batch_size = [8196] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}]
+Thu 20 Mar 2025 06:44:26 INFO  XSimGCL(
+  (user_embedding): Embedding(1342912, 64)
+  (item_embedding): Embedding(327699, 64)
+  (gcn_conv): LightGCNConv(64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+)
+Trainable parameters: 106919104
+Thu 20 Mar 2025 06:49:05 INFO  epoch 0 training [time: 278.39s, train_loss1: 1616.0131, train_loss2: 0.3360, train_loss3: 1287.1477]
+Thu 20 Mar 2025 06:53:43 INFO  epoch 1 training [time: 278.18s, train_loss1: 615.0551, train_loss2: 1.3624, train_loss3: 1157.4057]
+Thu 20 Mar 2025 06:58:21 INFO  epoch 2 training [time: 277.98s, train_loss1: 267.4010, train_loss2: 2.3893, train_loss3: 1135.8684]
+Thu 20 Mar 2025 07:02:59 INFO  epoch 3 training [time: 277.50s, train_loss1: 148.3558, train_loss2: 3.2226, train_loss3: 1130.9312]
+Thu 20 Mar 2025 07:07:38 INFO  epoch 4 training [time: 279.35s, train_loss1: 94.9055, train_loss2: 3.8556, train_loss3: 1129.0915]
+Thu 20 Mar 2025 07:12:15 INFO  epoch 5 training [time: 276.83s, train_loss1: 65.0724, train_loss2: 4.3292, train_loss3: 1128.1155]
+Thu 20 Mar 2025 07:16:50 INFO  epoch 6 training [time: 275.09s, train_loss1: 46.6694, train_loss2: 4.6929, train_loss3: 1127.5357]
+Thu 20 Mar 2025 07:21:21 INFO  epoch 7 training [time: 270.73s, train_loss1: 33.8314, train_loss2: 4.9759, train_loss3: 1127.1426]
+Thu 20 Mar 2025 07:25:51 INFO  epoch 8 training [time: 270.41s, train_loss1: 25.7007, train_loss2: 5.1974, train_loss3: 1126.9001]
+Thu 20 Mar 2025 07:30:22 INFO  epoch 9 training [time: 270.76s, train_loss1: 18.8106, train_loss2: 5.3741, train_loss3: 1126.6725]
+Thu 20 Mar 2025 07:45:18 INFO  valid result: 
+recall@10 : 0.0166    recall@20 : 0.023    ndcg@10 : 0.0093    ndcg@20 : 0.011    hit@10 : 0.0171    hit@20 : 0.0238    precision@10 : 0.0017    precision@20 : 0.0012
+Thu 20 Mar 2025 07:45:18 INFO  Received 20831 noise pairs for evaluation.
+Thu 20 Mar 2025 07:45:20 INFO  Alignment on noise pairs: 4.3971
+Thu 20 Mar 2025 07:45:20 INFO  epoch 9 evaluating [time: 897.86s, valid_score: 0.009300]
+Thu 20 Mar 2025 07:45:22 INFO  Saving current: saved\XSimGCL-Mar-20-2025_06-44-26.pth
+Thu 20 Mar 2025 07:50:00 INFO  epoch 10 training [time: 278.09s, train_loss1: 14.6144, train_loss2: 5.5138, train_loss3: 1126.5057]
+Thu 20 Mar 2025 07:54:39 INFO  epoch 11 training [time: 278.35s, train_loss1: 11.9885, train_loss2: 5.6262, train_loss3: 1126.4194]
+Thu 20 Mar 2025 07:59:17 INFO  epoch 12 training [time: 277.78s, train_loss1: 9.7262, train_loss2: 5.7156, train_loss3: 1126.2964]
+Thu 20 Mar 2025 08:03:55 INFO  epoch 13 training [time: 278.05s, train_loss1: 8.3563, train_loss2: 5.7875, train_loss3: 1126.1885]
+Thu 20 Mar 2025 08:08:32 INFO  epoch 14 training [time: 277.79s, train_loss1: 7.0404, train_loss2: 5.8433, train_loss3: 1126.1778]
+Thu 20 Mar 2025 08:13:10 INFO  epoch 15 training [time: 277.62s, train_loss1: 6.2895, train_loss2: 5.8842, train_loss3: 1126.1106]
+Thu 20 Mar 2025 08:17:48 INFO  epoch 16 training [time: 277.50s, train_loss1: 6.2156, train_loss2: 5.9150, train_loss3: 1126.1390]
+Thu 20 Mar 2025 08:22:25 INFO  epoch 17 training [time: 277.54s, train_loss1: 5.8154, train_loss2: 5.9352, train_loss3: 1126.0726]
+Thu 20 Mar 2025 08:27:03 INFO  epoch 18 training [time: 277.95s, train_loss1: 5.4592, train_loss2: 5.9490, train_loss3: 1126.0442]
+Thu 20 Mar 2025 08:31:41 INFO  epoch 19 training [time: 278.05s, train_loss1: 4.9481, train_loss2: 5.9590, train_loss3: 1125.9841]
+Thu 20 Mar 2025 08:48:17 INFO  valid result: 
+recall@10 : 0.0148    recall@20 : 0.0207    ndcg@10 : 0.0084    ndcg@20 : 0.0099    hit@10 : 0.0153    hit@20 : 0.0214    precision@10 : 0.0015    precision@20 : 0.0011
+Thu 20 Mar 2025 08:48:17 INFO  Received 20831 noise pairs for evaluation.
+Thu 20 Mar 2025 08:48:18 INFO  Alignment on noise pairs: 4.7296
+Thu 20 Mar 2025 08:48:18 INFO  epoch 19 evaluating [time: 997.25s, valid_score: 0.008400]
+Thu 20 Mar 2025 08:52:56 INFO  epoch 20 training [time: 277.65s, train_loss1: 4.9909, train_loss2: 5.9645, train_loss3: 1125.9874]
+Thu 20 Mar 2025 08:57:34 INFO  epoch 21 training [time: 277.74s, train_loss1: 4.8365, train_loss2: 5.9692, train_loss3: 1125.9565]
+Thu 20 Mar 2025 09:02:12 INFO  epoch 22 training [time: 278.54s, train_loss1: 5.1740, train_loss2: 5.9659, train_loss3: 1125.9946]
+Thu 20 Mar 2025 09:06:51 INFO  epoch 23 training [time: 278.43s, train_loss1: 5.1926, train_loss2: 5.9643, train_loss3: 1125.9591]
+Thu 20 Mar 2025 09:11:29 INFO  epoch 24 training [time: 277.94s, train_loss1: 4.6846, train_loss2: 5.9612, train_loss3: 1125.9793]
+Thu 20 Mar 2025 09:16:08 INFO  epoch 25 training [time: 278.98s, train_loss1: 4.9373, train_loss2: 5.9550, train_loss3: 1125.9122]
+Thu 20 Mar 2025 09:20:46 INFO  epoch 26 training [time: 278.02s, train_loss1: 4.4649, train_loss2: 5.9481, train_loss3: 1125.9838]
+Thu 20 Mar 2025 09:25:23 INFO  epoch 27 training [time: 277.71s, train_loss1: 4.6504, train_loss2: 5.9425, train_loss3: 1125.9165]
+Thu 20 Mar 2025 09:30:01 INFO  epoch 28 training [time: 278.06s, train_loss1: 5.0529, train_loss2: 5.9343, train_loss3: 1125.9035]
+Thu 20 Mar 2025 09:34:39 INFO  epoch 29 training [time: 277.62s, train_loss1: 4.5141, train_loss2: 5.9255, train_loss3: 1125.9140]
+Thu 20 Mar 2025 09:51:12 INFO  valid result: 
+recall@10 : 0.0135    recall@20 : 0.0193    ndcg@10 : 0.0078    ndcg@20 : 0.0092    hit@10 : 0.0139    hit@20 : 0.0199    precision@10 : 0.0014    precision@20 : 0.001
+Thu 20 Mar 2025 09:51:12 INFO  Received 20831 noise pairs for evaluation.
+Thu 20 Mar 2025 09:51:13 INFO  Alignment on noise pairs: 4.8545
+Thu 20 Mar 2025 09:51:13 INFO  epoch 29 evaluating [time: 994.09s, valid_score: 0.007800]
+Thu 20 Mar 2025 09:55:51 INFO  epoch 30 training [time: 278.28s, train_loss1: 4.5253, train_loss2: 5.9173, train_loss3: 1125.9376]
+Thu 20 Mar 2025 10:00:29 INFO  epoch 31 training [time: 277.70s, train_loss1: 4.5161, train_loss2: 5.9111, train_loss3: 1125.9043]
+Thu 20 Mar 2025 10:05:07 INFO  epoch 32 training [time: 277.85s, train_loss1: 4.5363, train_loss2: 5.9042, train_loss3: 1125.9077]
+Thu 20 Mar 2025 10:09:45 INFO  epoch 33 training [time: 277.63s, train_loss1: 4.6055, train_loss2: 5.8978, train_loss3: 1125.8880]
+Thu 20 Mar 2025 10:14:22 INFO  epoch 34 training [time: 277.64s, train_loss1: 4.9492, train_loss2: 5.8899, train_loss3: 1125.9211]
+Thu 20 Mar 2025 10:19:00 INFO  epoch 35 training [time: 277.69s, train_loss1: 4.7819, train_loss2: 5.8790, train_loss3: 1125.9159]
+Thu 20 Mar 2025 10:23:38 INFO  epoch 36 training [time: 278.17s, train_loss1: 4.8537, train_loss2: 5.8741, train_loss3: 1125.8916]
+Thu 20 Mar 2025 10:28:17 INFO  epoch 37 training [time: 278.86s, train_loss1: 4.6189, train_loss2: 5.8650, train_loss3: 1125.9074]
+Thu 20 Mar 2025 10:32:55 INFO  epoch 38 training [time: 277.74s, train_loss1: 4.6340, train_loss2: 5.8584, train_loss3: 1125.9077]
+Thu 20 Mar 2025 10:37:33 INFO  epoch 39 training [time: 278.20s, train_loss1: 5.0193, train_loss2: 5.8509, train_loss3: 1125.8974]
+Thu 20 Mar 2025 10:53:34 INFO  valid result: 
+recall@10 : 0.0122    recall@20 : 0.018    ndcg@10 : 0.0071    ndcg@20 : 0.0086    hit@10 : 0.0125    hit@20 : 0.0186    precision@10 : 0.0013    precision@20 : 0.0009
+Thu 20 Mar 2025 10:53:34 INFO  Received 20831 noise pairs for evaluation.
+Thu 20 Mar 2025 10:53:35 INFO  Alignment on noise pairs: 4.9457
+Thu 20 Mar 2025 10:53:35 INFO  epoch 39 evaluating [time: 962.12s, valid_score: 0.007100]
+Thu 20 Mar 2025 10:53:35 INFO  Finished training, best eval result in epoch 9
+Thu 20 Mar 2025 10:53:36 INFO  Loading model structure and parameters from saved\XSimGCL-Mar-20-2025_06-44-26.pth
+Thu 20 Mar 2025 12:00:32 INFO  valid result: 
+recall@10 : 0.0165    recall@20 : 0.0226    ndcg@10 : 0.0093    ndcg@20 : 0.0109    hit@10 : 0.0168    hit@20 : 0.023    precision@10 : 0.0017    precision@20 : 0.0012
+Thu 20 Mar 2025 12:00:32 INFO  Received 20831 noise pairs for evaluation.
+Thu 20 Mar 2025 12:00:34 INFO  Alignment on noise pairs: 4.3971
+Thu 20 Mar 2025 12:00:34 INFO  best valid : OrderedDict([('recall@10', 0.0166), ('recall@20', 0.023), ('ndcg@10', 0.0093), ('ndcg@20', 0.011), ('hit@10', 0.0171), ('hit@20', 0.0238), ('precision@10', 0.0017), ('precision@20', 0.0012)])
+Thu 20 Mar 2025 12:00:34 INFO  test result: OrderedDict([('recall@10', 0.0165), ('recall@20', 0.0226), ('ndcg@10', 0.0093), ('ndcg@20', 0.0109), ('hit@10', 0.0168), ('hit@20', 0.023), ('precision@10', 0.0017), ('precision@20', 0.0012)])

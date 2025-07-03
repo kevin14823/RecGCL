@@ -1,0 +1,354 @@
+Sat 05 Apr 2025 00:45:56 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/ml-1m
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 300
+train_batch_size = 500
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 10
+stopping_step = 2
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}
+repeatable = False
+metrics = ['Recall', 'NDCG', 'Hit', 'Precision']
+topk = [10, 20]
+valid_metric = ndcg@10
+valid_metric_bigger = True
+eval_batch_size = 8196
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [0,inf)
+item_inter_num_interval = [0,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = None
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = True
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+n_layers = 2
+reg_weight = 0.0001
+ssl_temp = 0.5
+ssl_reg = 1e-07
+hyper_layers = 1
+alpha = 1
+proto_reg = 8e-08
+num_clusters = 1000
+m_step = 1
+warm_up_step = 20
+numerical_features = []
+discretization = None
+kg_reverse_r = False
+entity_kg_num_interval = [0,inf)
+relation_kg_num_interval = [0,inf)
+MODEL_TYPE = ModelType.GENERAL
+lambda = 0.1
+eps = 0.2
+temperature = 0.2
+layer_cl = 1
+q = 5
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+valid_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+test_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Sat 05 Apr 2025 00:45:58 INFO  ml-1m
+The number of users: 6041
+Average actions of users: 165.5975165562914
+The number of items: 3707
+Average actions of items: 269.88909875876953
+The number of inters: 1000209
+The sparsity of the dataset: 95.53358229599758%
+Remain Fields: ['user_id', 'item_id']
+Sat 05 Apr 2025 00:45:59 INFO  Generated noise pairs: 47316
+Sat 05 Apr 2025 00:45:59 INFO  First few noise pairs: [(1, 2538), (1, 2537), (2, 714), (2, 2745), (2, 3147)]
+Sat 05 Apr 2025 00:46:05 INFO  [Training]: train_batch_size = [500] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Sat 05 Apr 2025 00:46:05 INFO  [Evaluation]: eval_batch_size = [8196] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}]
+Sat 05 Apr 2025 00:46:05 INFO  NCL(
+  (user_embedding): Embedding(6041, 64)
+  (item_embedding): Embedding(3707, 64)
+  (gcn_conv): LightGCNConv(64)
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+)
+Trainable parameters: 623872
+Sat 05 Apr 2025 00:46:05 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:46:05 INFO  Loading faiss with AVX2 support.
+Sat 05 Apr 2025 00:46:05 INFO  Successfully loaded faiss with AVX2 support.
+Sat 05 Apr 2025 00:46:30 INFO  epoch 0 training [time: 23.58s, train_loss1: 710.9518, train_loss2: 1.3978]
+Sat 05 Apr 2025 00:46:30 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:46:53 INFO  epoch 1 training [time: 23.24s, train_loss1: 644.4870, train_loss2: 1.4175]
+Sat 05 Apr 2025 00:46:53 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:47:17 INFO  epoch 2 training [time: 23.11s, train_loss1: 616.4591, train_loss2: 1.4315]
+Sat 05 Apr 2025 00:47:17 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:47:40 INFO  epoch 3 training [time: 23.23s, train_loss1: 577.5929, train_loss2: 1.4226]
+Sat 05 Apr 2025 00:47:40 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:48:04 INFO  epoch 4 training [time: 23.19s, train_loss1: 550.8300, train_loss2: 1.4077]
+Sat 05 Apr 2025 00:48:04 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:48:27 INFO  epoch 5 training [time: 23.22s, train_loss1: 526.5804, train_loss2: 1.3918]
+Sat 05 Apr 2025 00:48:27 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:48:51 INFO  epoch 6 training [time: 23.24s, train_loss1: 511.4907, train_loss2: 1.3802]
+Sat 05 Apr 2025 00:48:51 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:49:14 INFO  epoch 7 training [time: 23.13s, train_loss1: 495.5948, train_loss2: 1.3706]
+Sat 05 Apr 2025 00:49:14 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:49:38 INFO  epoch 8 training [time: 23.26s, train_loss1: 480.9426, train_loss2: 1.3618]
+Sat 05 Apr 2025 00:49:38 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:50:01 INFO  epoch 9 training [time: 22.97s, train_loss1: 468.8035, train_loss2: 1.3543]
+Sat 05 Apr 2025 00:50:06 INFO  valid result: 
+recall@10 : 0.1088    recall@20 : 0.1711    ndcg@10 : 0.171    ndcg@20 : 0.178    hit@10 : 0.6396    hit@20 : 0.7563    precision@10 : 0.1373    precision@20 : 0.1135
+Sat 05 Apr 2025 00:50:06 INFO  Received 47316 noise pairs for evaluation.
+Sat 05 Apr 2025 00:50:09 INFO  Alignment on noise pairs: 2.2470
+Sat 05 Apr 2025 00:50:09 INFO  epoch 9 evaluating [time: 7.90s, valid_score: 0.171000]
+Sat 05 Apr 2025 00:50:09 INFO  Saving current: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 00:50:09 INFO  Saving current best: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 00:50:09 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:50:33 INFO  epoch 10 training [time: 23.30s, train_loss1: 459.0419, train_loss2: 1.3486]
+Sat 05 Apr 2025 00:50:33 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:50:57 INFO  epoch 11 training [time: 23.13s, train_loss1: 451.0284, train_loss2: 1.3440]
+Sat 05 Apr 2025 00:50:57 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:51:20 INFO  epoch 12 training [time: 23.26s, train_loss1: 441.3136, train_loss2: 1.3398]
+Sat 05 Apr 2025 00:51:20 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:51:44 INFO  epoch 13 training [time: 23.27s, train_loss1: 434.6559, train_loss2: 1.3364]
+Sat 05 Apr 2025 00:51:44 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:52:07 INFO  epoch 14 training [time: 23.14s, train_loss1: 427.1960, train_loss2: 1.3333]
+Sat 05 Apr 2025 00:52:07 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:52:31 INFO  epoch 15 training [time: 23.24s, train_loss1: 422.7733, train_loss2: 1.3307]
+Sat 05 Apr 2025 00:52:31 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:52:55 INFO  epoch 16 training [time: 23.31s, train_loss1: 417.8849, train_loss2: 1.3284]
+Sat 05 Apr 2025 00:52:55 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:53:18 INFO  epoch 17 training [time: 23.39s, train_loss1: 412.3838, train_loss2: 1.3260]
+Sat 05 Apr 2025 00:53:18 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:53:42 INFO  epoch 18 training [time: 23.23s, train_loss1: 408.2151, train_loss2: 1.3243]
+Sat 05 Apr 2025 00:53:42 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:54:06 INFO  epoch 19 training [time: 23.33s, train_loss1: 403.8944, train_loss2: 1.3230]
+Sat 05 Apr 2025 00:54:10 INFO  valid result: 
+recall@10 : 0.1278    recall@20 : 0.2007    ndcg@10 : 0.1933    ndcg@20 : 0.2037    hit@10 : 0.6907    hit@20 : 0.7978    precision@10 : 0.1547    precision@20 : 0.1286
+Sat 05 Apr 2025 00:54:10 INFO  Received 47316 noise pairs for evaluation.
+Sat 05 Apr 2025 00:54:13 INFO  Alignment on noise pairs: 2.7804
+Sat 05 Apr 2025 00:54:13 INFO  epoch 19 evaluating [time: 7.82s, valid_score: 0.193300]
+Sat 05 Apr 2025 00:54:13 INFO  Saving current: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 00:54:13 INFO  Saving current best: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 00:54:13 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:54:39 INFO  epoch 20 training [time: 24.98s, train_loss1: 399.3298, train_loss2: 1.3219, train_loss3: 0.7334]
+Sat 05 Apr 2025 00:54:39 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:55:03 INFO  epoch 21 training [time: 24.06s, train_loss1: 396.1330, train_loss2: 1.3210, train_loss3: 0.7334]
+Sat 05 Apr 2025 00:55:03 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:55:26 INFO  epoch 22 training [time: 22.72s, train_loss1: 391.7583, train_loss2: 1.3203, train_loss3: 0.7333]
+Sat 05 Apr 2025 00:55:26 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:55:49 INFO  epoch 23 training [time: 22.58s, train_loss1: 388.0938, train_loss2: 1.3197, train_loss3: 0.7334]
+Sat 05 Apr 2025 00:55:49 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:56:12 INFO  epoch 24 training [time: 22.68s, train_loss1: 384.7444, train_loss2: 1.3196, train_loss3: 0.7337]
+Sat 05 Apr 2025 00:56:12 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:56:35 INFO  epoch 25 training [time: 22.34s, train_loss1: 382.4672, train_loss2: 1.3196, train_loss3: 0.7343]
+Sat 05 Apr 2025 00:56:35 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:56:58 INFO  epoch 26 training [time: 22.80s, train_loss1: 378.7745, train_loss2: 1.3197, train_loss3: 0.7343]
+Sat 05 Apr 2025 00:56:58 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:57:21 INFO  epoch 27 training [time: 22.75s, train_loss1: 375.3363, train_loss2: 1.3201, train_loss3: 0.7351]
+Sat 05 Apr 2025 00:57:21 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:57:45 INFO  epoch 28 training [time: 22.86s, train_loss1: 373.1964, train_loss2: 1.3204, train_loss3: 0.7350]
+Sat 05 Apr 2025 00:57:45 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:58:08 INFO  epoch 29 training [time: 22.84s, train_loss1: 369.3694, train_loss2: 1.3211, train_loss3: 0.7355]
+Sat 05 Apr 2025 00:58:12 INFO  valid result: 
+recall@10 : 0.1349    recall@20 : 0.2104    ndcg@10 : 0.1986    ndcg@20 : 0.21    hit@10 : 0.7081    hit@20 : 0.8134    precision@10 : 0.159    precision@20 : 0.1321
+Sat 05 Apr 2025 00:58:12 INFO  Received 47316 noise pairs for evaluation.
+Sat 05 Apr 2025 00:58:16 INFO  Alignment on noise pairs: 3.1244
+Sat 05 Apr 2025 00:58:16 INFO  epoch 29 evaluating [time: 8.07s, valid_score: 0.198600]
+Sat 05 Apr 2025 00:58:16 INFO  Saving current: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 00:58:16 INFO  Saving current best: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 00:58:16 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:58:39 INFO  epoch 30 training [time: 23.16s, train_loss1: 366.3713, train_loss2: 1.3215, train_loss3: 0.7365]
+Sat 05 Apr 2025 00:58:39 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:59:03 INFO  epoch 31 training [time: 22.91s, train_loss1: 361.8447, train_loss2: 1.3222, train_loss3: 0.7368]
+Sat 05 Apr 2025 00:59:03 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:59:26 INFO  epoch 32 training [time: 22.87s, train_loss1: 359.5734, train_loss2: 1.3231, train_loss3: 0.7377]
+Sat 05 Apr 2025 00:59:26 INFO  Running E-step ! 
+Sat 05 Apr 2025 00:59:49 INFO  epoch 33 training [time: 22.94s, train_loss1: 356.0718, train_loss2: 1.3242, train_loss3: 0.7381]
+Sat 05 Apr 2025 00:59:49 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:00:12 INFO  epoch 34 training [time: 22.90s, train_loss1: 351.9900, train_loss2: 1.3252, train_loss3: 0.7385]
+Sat 05 Apr 2025 01:00:12 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:00:36 INFO  epoch 35 training [time: 23.02s, train_loss1: 348.4033, train_loss2: 1.3263, train_loss3: 0.7399]
+Sat 05 Apr 2025 01:00:36 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:00:59 INFO  epoch 36 training [time: 22.97s, train_loss1: 344.6917, train_loss2: 1.3272, train_loss3: 0.7401]
+Sat 05 Apr 2025 01:00:59 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:01:22 INFO  epoch 37 training [time: 22.60s, train_loss1: 341.5190, train_loss2: 1.3286, train_loss3: 0.7411]
+Sat 05 Apr 2025 01:01:22 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:01:45 INFO  epoch 38 training [time: 22.79s, train_loss1: 337.3037, train_loss2: 1.3298, train_loss3: 0.7418]
+Sat 05 Apr 2025 01:01:45 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:02:08 INFO  epoch 39 training [time: 22.66s, train_loss1: 334.2225, train_loss2: 1.3311, train_loss3: 0.7424]
+Sat 05 Apr 2025 01:02:13 INFO  valid result: 
+recall@10 : 0.1395    recall@20 : 0.2164    ndcg@10 : 0.2045    ndcg@20 : 0.2158    hit@10 : 0.7212    hit@20 : 0.823    precision@10 : 0.1633    precision@20 : 0.1351
+Sat 05 Apr 2025 01:02:13 INFO  Received 47316 noise pairs for evaluation.
+Sat 05 Apr 2025 01:02:17 INFO  Alignment on noise pairs: 3.4643
+Sat 05 Apr 2025 01:02:17 INFO  epoch 39 evaluating [time: 8.94s, valid_score: 0.204500]
+Sat 05 Apr 2025 01:02:17 INFO  Saving current: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 01:02:17 INFO  Saving current best: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 01:02:17 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:02:41 INFO  epoch 40 training [time: 23.00s, train_loss1: 330.8030, train_loss2: 1.3326, train_loss3: 0.7431]
+Sat 05 Apr 2025 01:02:41 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:03:04 INFO  epoch 41 training [time: 22.72s, train_loss1: 326.4018, train_loss2: 1.3340, train_loss3: 0.7442]
+Sat 05 Apr 2025 01:03:04 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:03:27 INFO  epoch 42 training [time: 22.56s, train_loss1: 322.3213, train_loss2: 1.3356, train_loss3: 0.7449]
+Sat 05 Apr 2025 01:03:27 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:03:49 INFO  epoch 43 training [time: 22.60s, train_loss1: 319.1923, train_loss2: 1.3370, train_loss3: 0.7456]
+Sat 05 Apr 2025 01:03:49 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:04:12 INFO  epoch 44 training [time: 22.62s, train_loss1: 314.4803, train_loss2: 1.3385, train_loss3: 0.7460]
+Sat 05 Apr 2025 01:04:12 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:04:35 INFO  epoch 45 training [time: 22.69s, train_loss1: 313.3747, train_loss2: 1.3401, train_loss3: 0.7471]
+Sat 05 Apr 2025 01:04:35 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:04:59 INFO  epoch 46 training [time: 22.81s, train_loss1: 308.3355, train_loss2: 1.3413, train_loss3: 0.7479]
+Sat 05 Apr 2025 01:04:59 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:05:22 INFO  epoch 47 training [time: 22.87s, train_loss1: 305.0096, train_loss2: 1.3427, train_loss3: 0.7490]
+Sat 05 Apr 2025 01:05:22 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:05:45 INFO  epoch 48 training [time: 22.86s, train_loss1: 300.6661, train_loss2: 1.3440, train_loss3: 0.7497]
+Sat 05 Apr 2025 01:05:45 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:06:08 INFO  epoch 49 training [time: 22.76s, train_loss1: 298.0198, train_loss2: 1.3456, train_loss3: 0.7508]
+Sat 05 Apr 2025 01:06:13 INFO  valid result: 
+recall@10 : 0.1432    recall@20 : 0.2216    ndcg@10 : 0.2068    ndcg@20 : 0.2187    hit@10 : 0.7247    hit@20 : 0.8331    precision@10 : 0.1648    precision@20 : 0.1363
+Sat 05 Apr 2025 01:06:13 INFO  Received 47316 noise pairs for evaluation.
+Sat 05 Apr 2025 01:06:16 INFO  Alignment on noise pairs: 3.8461
+Sat 05 Apr 2025 01:06:16 INFO  epoch 49 evaluating [time: 8.29s, valid_score: 0.206800]
+Sat 05 Apr 2025 01:06:16 INFO  Saving current: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 01:06:16 INFO  Saving current best: saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 01:06:16 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:06:40 INFO  epoch 50 training [time: 23.04s, train_loss1: 294.2590, train_loss2: 1.3468, train_loss3: 0.7514]
+Sat 05 Apr 2025 01:06:40 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:07:03 INFO  epoch 51 training [time: 22.57s, train_loss1: 290.2903, train_loss2: 1.3482, train_loss3: 0.7523]
+Sat 05 Apr 2025 01:07:03 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:07:26 INFO  epoch 52 training [time: 22.61s, train_loss1: 287.0851, train_loss2: 1.3495, train_loss3: 0.7527]
+Sat 05 Apr 2025 01:07:26 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:07:49 INFO  epoch 53 training [time: 22.66s, train_loss1: 284.2939, train_loss2: 1.3510, train_loss3: 0.7533]
+Sat 05 Apr 2025 01:07:49 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:08:12 INFO  epoch 54 training [time: 22.56s, train_loss1: 280.3883, train_loss2: 1.3522, train_loss3: 0.7543]
+Sat 05 Apr 2025 01:08:12 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:08:35 INFO  epoch 55 training [time: 22.91s, train_loss1: 277.9679, train_loss2: 1.3534, train_loss3: 0.7557]
+Sat 05 Apr 2025 01:08:35 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:08:58 INFO  epoch 56 training [time: 22.84s, train_loss1: 275.9604, train_loss2: 1.3546, train_loss3: 0.7561]
+Sat 05 Apr 2025 01:08:58 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:09:21 INFO  epoch 57 training [time: 22.97s, train_loss1: 270.3920, train_loss2: 1.3556, train_loss3: 0.7570]
+Sat 05 Apr 2025 01:09:21 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:09:45 INFO  epoch 58 training [time: 22.89s, train_loss1: 268.5229, train_loss2: 1.3567, train_loss3: 0.7573]
+Sat 05 Apr 2025 01:09:45 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:10:08 INFO  epoch 59 training [time: 22.91s, train_loss1: 267.1397, train_loss2: 1.3578, train_loss3: 0.7574]
+Sat 05 Apr 2025 01:10:12 INFO  valid result: 
+recall@10 : 0.143    recall@20 : 0.2254    ndcg@10 : 0.2056    ndcg@20 : 0.2202    hit@10 : 0.7265    hit@20 : 0.8354    precision@10 : 0.1628    precision@20 : 0.1371
+Sat 05 Apr 2025 01:10:12 INFO  Received 47316 noise pairs for evaluation.
+Sat 05 Apr 2025 01:10:17 INFO  Alignment on noise pairs: 4.2297
+Sat 05 Apr 2025 01:10:17 INFO  epoch 59 evaluating [time: 8.71s, valid_score: 0.205600]
+Sat 05 Apr 2025 01:10:17 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:10:40 INFO  epoch 60 training [time: 23.17s, train_loss1: 262.0330, train_loss2: 1.3592, train_loss3: 0.7589]
+Sat 05 Apr 2025 01:10:40 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:11:03 INFO  epoch 61 training [time: 22.99s, train_loss1: 260.2820, train_loss2: 1.3600, train_loss3: 0.7596]
+Sat 05 Apr 2025 01:11:03 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:11:27 INFO  epoch 62 training [time: 23.00s, train_loss1: 256.0857, train_loss2: 1.3612, train_loss3: 0.7606]
+Sat 05 Apr 2025 01:11:27 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:11:50 INFO  epoch 63 training [time: 22.94s, train_loss1: 255.8370, train_loss2: 1.3621, train_loss3: 0.7607]
+Sat 05 Apr 2025 01:11:50 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:12:13 INFO  epoch 64 training [time: 22.82s, train_loss1: 254.2568, train_loss2: 1.3630, train_loss3: 0.7613]
+Sat 05 Apr 2025 01:12:13 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:12:37 INFO  epoch 65 training [time: 23.01s, train_loss1: 249.9117, train_loss2: 1.3639, train_loss3: 0.7620]
+Sat 05 Apr 2025 01:12:37 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:13:00 INFO  epoch 66 training [time: 22.88s, train_loss1: 248.7136, train_loss2: 1.3649, train_loss3: 0.7633]
+Sat 05 Apr 2025 01:13:00 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:13:23 INFO  epoch 67 training [time: 22.93s, train_loss1: 244.9752, train_loss2: 1.3658, train_loss3: 0.7637]
+Sat 05 Apr 2025 01:13:23 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:13:46 INFO  epoch 68 training [time: 22.81s, train_loss1: 243.2111, train_loss2: 1.3666, train_loss3: 0.7645]
+Sat 05 Apr 2025 01:13:46 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:14:09 INFO  epoch 69 training [time: 22.64s, train_loss1: 241.0707, train_loss2: 1.3674, train_loss3: 0.7646]
+Sat 05 Apr 2025 01:14:14 INFO  valid result: 
+recall@10 : 0.1434    recall@20 : 0.2256    ndcg@10 : 0.2037    ndcg@20 : 0.2186    hit@10 : 0.7262    hit@20 : 0.8382    precision@10 : 0.1615    precision@20 : 0.1357
+Sat 05 Apr 2025 01:14:14 INFO  Received 47316 noise pairs for evaluation.
+Sat 05 Apr 2025 01:14:17 INFO  Alignment on noise pairs: 4.5841
+Sat 05 Apr 2025 01:14:17 INFO  epoch 69 evaluating [time: 8.18s, valid_score: 0.203700]
+Sat 05 Apr 2025 01:14:17 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:14:41 INFO  epoch 70 training [time: 23.05s, train_loss1: 239.1756, train_loss2: 1.3681, train_loss3: 0.7658]
+Sat 05 Apr 2025 01:14:41 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:15:04 INFO  epoch 71 training [time: 22.64s, train_loss1: 237.2591, train_loss2: 1.3688, train_loss3: 0.7659]
+Sat 05 Apr 2025 01:15:04 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:15:27 INFO  epoch 72 training [time: 22.67s, train_loss1: 235.5437, train_loss2: 1.3693, train_loss3: 0.7664]
+Sat 05 Apr 2025 01:15:27 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:15:50 INFO  epoch 73 training [time: 22.68s, train_loss1: 234.7852, train_loss2: 1.3702, train_loss3: 0.7668]
+Sat 05 Apr 2025 01:15:50 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:16:13 INFO  epoch 74 training [time: 22.60s, train_loss1: 232.0737, train_loss2: 1.3711, train_loss3: 0.7674]
+Sat 05 Apr 2025 01:16:13 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:16:36 INFO  epoch 75 training [time: 22.66s, train_loss1: 230.2826, train_loss2: 1.3716, train_loss3: 0.7684]
+Sat 05 Apr 2025 01:16:36 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:16:59 INFO  epoch 76 training [time: 22.70s, train_loss1: 228.5897, train_loss2: 1.3723, train_loss3: 0.7690]
+Sat 05 Apr 2025 01:16:59 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:17:22 INFO  epoch 77 training [time: 22.81s, train_loss1: 226.9384, train_loss2: 1.3730, train_loss3: 0.7697]
+Sat 05 Apr 2025 01:17:22 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:17:45 INFO  epoch 78 training [time: 22.62s, train_loss1: 225.8130, train_loss2: 1.3736, train_loss3: 0.7697]
+Sat 05 Apr 2025 01:17:45 INFO  Running E-step ! 
+Sat 05 Apr 2025 01:18:08 INFO  epoch 79 training [time: 22.83s, train_loss1: 223.8319, train_loss2: 1.3742, train_loss3: 0.7697]
+Sat 05 Apr 2025 01:18:13 INFO  valid result: 
+recall@10 : 0.1413    recall@20 : 0.2225    ndcg@10 : 0.2015    ndcg@20 : 0.2162    hit@10 : 0.7225    hit@20 : 0.8321    precision@10 : 0.1589    precision@20 : 0.1334
+Sat 05 Apr 2025 01:18:13 INFO  Received 47316 noise pairs for evaluation.
+Sat 05 Apr 2025 01:18:17 INFO  Alignment on noise pairs: 4.8941
+Sat 05 Apr 2025 01:18:17 INFO  epoch 79 evaluating [time: 8.39s, valid_score: 0.201500]
+Sat 05 Apr 2025 01:18:17 INFO  Finished training, best eval result in epoch 49
+Sat 05 Apr 2025 01:18:17 INFO  Loading model structure and parameters from saved\NCL-Apr-05-2025_00-46-05.pth
+Sat 05 Apr 2025 01:18:23 INFO  valid result: 
+recall@10 : 0.1611    recall@20 : 0.2472    ndcg@10 : 0.2616    ndcg@20 : 0.2644    hit@10 : 0.7502    hit@20 : 0.8503    precision@10 : 0.2068    precision@20 : 0.1639
+Sat 05 Apr 2025 01:18:23 INFO  Received 47316 noise pairs for evaluation.
+Sat 05 Apr 2025 01:18:26 INFO  Alignment on noise pairs: 3.8461
+Sat 05 Apr 2025 01:18:26 INFO  best valid : OrderedDict([('recall@10', 0.1432), ('recall@20', 0.2216), ('ndcg@10', 0.2068), ('ndcg@20', 0.2187), ('hit@10', 0.7247), ('hit@20', 0.8331), ('precision@10', 0.1648), ('precision@20', 0.1363)])
+Sat 05 Apr 2025 01:18:26 INFO  test result: OrderedDict([('recall@10', 0.1611), ('recall@20', 0.2472), ('ndcg@10', 0.2616), ('ndcg@20', 0.2644), ('hit@10', 0.7502), ('hit@20', 0.8503), ('precision@10', 0.2068), ('precision@20', 0.1639)])

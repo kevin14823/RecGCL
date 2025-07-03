@@ -1,0 +1,210 @@
+Sat 31 May 2025 01:51:31 INFO  
+General Hyper Parameters:
+gpu_id = 0
+use_gpu = True
+seed = 2020
+state = INFO
+reproducibility = True
+data_path = dataset/ml-1m
+checkpoint_dir = saved
+show_progress = True
+save_dataset = False
+dataset_save_path = None
+save_dataloaders = False
+dataloaders_save_path = None
+log_wandb = False
+
+Training Hyper Parameters:
+epochs = 300
+train_batch_size = 500
+learner = adam
+learning_rate = 0.001
+train_neg_sample_args = {'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}
+eval_step = 10
+stopping_step = 2
+clip_grad_norm = None
+weight_decay = 0.0
+loss_decimal_place = 4
+
+Evaluation Hyper Parameters:
+eval_args = {'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}
+repeatable = False
+metrics = ['Recall', 'NDCG', 'Hit', 'Precision']
+topk = [10, 20]
+valid_metric = unpopular/ndcg@10
+valid_metric_bigger = True
+eval_batch_size = 8196
+metric_decimal_place = 4
+
+Dataset Hyper Parameters:
+field_separator = 	
+seq_separator =  
+USER_ID_FIELD = user_id
+ITEM_ID_FIELD = item_id
+RATING_FIELD = rating
+TIME_FIELD = timestamp
+seq_len = None
+LABEL_FIELD = label
+threshold = None
+NEG_PREFIX = neg_
+load_col = {'inter': ['user_id', 'item_id']}
+unload_col = None
+unused_col = None
+additional_feat_suffix = None
+rm_dup_inter = None
+val_interval = None
+filter_inter_by_user_or_item = True
+user_inter_num_interval = [0,inf)
+item_inter_num_interval = [0,inf)
+alias_of_user_id = None
+alias_of_item_id = None
+alias_of_entity_id = None
+alias_of_relation_id = None
+preload_weight = None
+normalize_field = None
+normalize_all = None
+ITEM_LIST_LENGTH_FIELD = item_length
+LIST_SUFFIX = _list
+MAX_ITEM_LIST_LENGTH = 50
+POSITION_FIELD = position_id
+HEAD_ENTITY_ID_FIELD = head_id
+TAIL_ENTITY_ID_FIELD = tail_id
+RELATION_ID_FIELD = relation_id
+ENTITY_ID_FIELD = entity_id
+benchmark_filename = None
+
+Other Hyper Parameters: 
+worker = 0
+wandb_project = recbole
+shuffle = True
+require_pow = False
+enable_amp = False
+enable_scaler = False
+transform = None
+embedding_size = 64
+hidden_size_list = [64, 64, 64]
+node_dropout = 0.1
+message_dropout = 0.1
+reg_weight = 0.0001
+numerical_features = []
+discretization = None
+kg_reverse_r = False
+entity_kg_num_interval = [0,inf)
+relation_kg_num_interval = [0,inf)
+MODEL_TYPE = ModelType.GENERAL
+MODEL_INPUT_TYPE = InputType.PAIRWISE
+eval_type = EvaluatorType.RANKING
+single_spec = True
+local_rank = 0
+device = cuda
+valid_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+test_neg_sample_args = {'distribution': 'uniform', 'sample_num': 'none'}
+
+
+Sat 31 May 2025 01:51:33 INFO  ml-1m
+The number of users: 6041
+Average actions of users: 165.5975165562914
+The number of items: 3707
+Average actions of items: 269.88909875876953
+The number of inters: 1000209
+The sparsity of the dataset: 95.53358229599758%
+Remain Fields: ['user_id', 'item_id']
+Sat 31 May 2025 01:51:35 INFO  [Training]: train_batch_size = [500] train_neg_sample_args: [{'distribution': 'uniform', 'sample_num': 1, 'alpha': 1.0, 'dynamic': False, 'candidate_num': 0}]
+Sat 31 May 2025 01:51:35 INFO  [Evaluation]: eval_batch_size = [8196] eval_args: [{'split': {'RS': [0.8, 0.1, 0.1]}, 'order': 'RO', 'group_by': 'user', 'mode': {'valid': 'full', 'test': 'full'}}]
+Sat 31 May 2025 01:51:35 INFO  NGCF(
+  (user_embedding): Embedding(6041, 64)
+  (item_embedding): Embedding(3707, 64)
+  (GNNlayers): ModuleList(
+    (0): BiGNNConv(64,64)
+    (1): BiGNNConv(64,64)
+    (2): BiGNNConv(64,64)
+  )
+  (mf_loss): BPRLoss()
+  (reg_loss): EmbLoss()
+)
+Trainable parameters: 648832
+Sat 31 May 2025 01:52:02 INFO  epoch 0 training [time: 26.82s, train loss: 538.4409]
+Sat 31 May 2025 01:52:27 INFO  epoch 1 training [time: 25.92s, train loss: 453.8154]
+Sat 31 May 2025 01:52:54 INFO  epoch 2 training [time: 26.14s, train loss: 427.5960]
+Sat 31 May 2025 01:53:20 INFO  epoch 3 training [time: 25.99s, train loss: 402.4835]
+Sat 31 May 2025 01:53:46 INFO  epoch 4 training [time: 26.02s, train loss: 383.4774]
+Sat 31 May 2025 01:54:12 INFO  epoch 5 training [time: 26.00s, train loss: 367.9728]
+Sat 31 May 2025 01:54:38 INFO  epoch 6 training [time: 26.00s, train loss: 353.3321]
+Sat 31 May 2025 01:55:04 INFO  epoch 7 training [time: 26.01s, train loss: 341.8854]
+Sat 31 May 2025 01:55:30 INFO  epoch 8 training [time: 26.00s, train loss: 332.8065]
+Sat 31 May 2025 01:55:56 INFO  epoch 9 training [time: 25.96s, train loss: 323.1721]
+Sat 31 May 2025 01:56:00 INFO  epoch 9 evaluating [time: 4.68s, valid_score: 0.166300]
+Sat 31 May 2025 01:56:00 INFO  valid result: 
+popular : OrderedDict([('recall@10', 0.0621), ('recall@20', 0.1119), ('ndcg@10', 0.3752), ('ndcg@20', 0.3477), ('hit@10', 0.9917), ('hit@20', 0.9983), ('precision@10', 0.3652), ('precision@20', 0.3308)])    unpopular : OrderedDict([('recall@10', 0.1351), ('recall@20', 0.211), ('ndcg@10', 0.1663), ('ndcg@20', 0.1821), ('hit@10', 0.6483), ('hit@20', 0.7726), ('precision@10', 0.126), ('precision@20', 0.1014)])
+Sat 31 May 2025 01:56:00 INFO  Saving current: saved\NGCF-May-31-2025_01-51-35.pth
+Sat 31 May 2025 01:56:27 INFO  epoch 10 training [time: 26.31s, train loss: 314.2453]
+Sat 31 May 2025 01:56:53 INFO  epoch 11 training [time: 25.96s, train loss: 305.5705]
+Sat 31 May 2025 01:57:19 INFO  epoch 12 training [time: 26.04s, train loss: 297.1642]
+Sat 31 May 2025 01:57:45 INFO  epoch 13 training [time: 26.03s, train loss: 290.2422]
+Sat 31 May 2025 01:58:11 INFO  epoch 14 training [time: 25.98s, train loss: 284.1550]
+Sat 31 May 2025 01:58:37 INFO  epoch 15 training [time: 26.10s, train loss: 276.2281]
+Sat 31 May 2025 01:59:03 INFO  epoch 16 training [time: 26.03s, train loss: 270.5673]
+Sat 31 May 2025 01:59:29 INFO  epoch 17 training [time: 26.05s, train loss: 265.8303]
+Sat 31 May 2025 01:59:55 INFO  epoch 18 training [time: 25.95s, train loss: 260.9403]
+Sat 31 May 2025 02:00:21 INFO  epoch 19 training [time: 26.01s, train loss: 253.4959]
+Sat 31 May 2025 02:00:25 INFO  epoch 19 evaluating [time: 4.53s, valid_score: 0.175900]
+Sat 31 May 2025 02:00:25 INFO  valid result: 
+popular : OrderedDict([('recall@10', 0.0605), ('recall@20', 0.1106), ('ndcg@10', 0.3691), ('ndcg@20', 0.3437), ('hit@10', 0.9818), ('hit@20', 0.9967), ('precision@10', 0.3579), ('precision@20', 0.3273)])    unpopular : OrderedDict([('recall@10', 0.1483), ('recall@20', 0.2371), ('ndcg@10', 0.1759), ('ndcg@20', 0.1973), ('hit@10', 0.6799), ('hit@20', 0.8094), ('precision@10', 0.1317), ('precision@20', 0.1085)])
+Sat 31 May 2025 02:00:25 INFO  Saving current: saved\NGCF-May-31-2025_01-51-35.pth
+Sat 31 May 2025 02:00:52 INFO  epoch 20 training [time: 26.31s, train loss: 250.2198]
+Sat 31 May 2025 02:01:18 INFO  epoch 21 training [time: 25.97s, train loss: 244.2119]
+Sat 31 May 2025 02:01:44 INFO  epoch 22 training [time: 25.95s, train loss: 239.7628]
+Sat 31 May 2025 02:02:10 INFO  epoch 23 training [time: 25.96s, train loss: 234.7789]
+Sat 31 May 2025 02:02:36 INFO  epoch 24 training [time: 26.08s, train loss: 230.2508]
+Sat 31 May 2025 02:03:02 INFO  epoch 25 training [time: 26.00s, train loss: 225.6745]
+Sat 31 May 2025 02:03:28 INFO  epoch 26 training [time: 26.15s, train loss: 222.2492]
+Sat 31 May 2025 02:03:54 INFO  epoch 27 training [time: 26.07s, train loss: 217.2856]
+Sat 31 May 2025 02:04:20 INFO  epoch 28 training [time: 25.99s, train loss: 213.8807]
+Sat 31 May 2025 02:04:46 INFO  epoch 29 training [time: 26.13s, train loss: 211.0709]
+Sat 31 May 2025 02:04:51 INFO  epoch 29 evaluating [time: 4.67s, valid_score: 0.178500]
+Sat 31 May 2025 02:04:51 INFO  valid result: 
+popular : OrderedDict([('recall@10', 0.0589), ('recall@20', 0.108), ('ndcg@10', 0.3538), ('ndcg@20', 0.3321), ('hit@10', 0.9851), ('hit@20', 0.9967), ('precision@10', 0.3444), ('precision@20', 0.3182)])    unpopular : OrderedDict([('recall@10', 0.1516), ('recall@20', 0.2417), ('ndcg@10', 0.1785), ('ndcg@20', 0.2004), ('hit@10', 0.6864), ('hit@20', 0.8136), ('precision@10', 0.1338), ('precision@20', 0.1099)])
+Sat 31 May 2025 02:04:51 INFO  Saving current: saved\NGCF-May-31-2025_01-51-35.pth
+Sat 31 May 2025 02:05:17 INFO  epoch 30 training [time: 26.26s, train loss: 207.4085]
+Sat 31 May 2025 02:05:43 INFO  epoch 31 training [time: 26.01s, train loss: 203.3481]
+Sat 31 May 2025 02:06:09 INFO  epoch 32 training [time: 25.94s, train loss: 199.8513]
+Sat 31 May 2025 02:06:35 INFO  epoch 33 training [time: 26.02s, train loss: 198.0295]
+Sat 31 May 2025 02:07:01 INFO  epoch 34 training [time: 25.99s, train loss: 193.8517]
+Sat 31 May 2025 02:07:27 INFO  epoch 35 training [time: 26.03s, train loss: 191.1574]
+Sat 31 May 2025 02:07:53 INFO  epoch 36 training [time: 26.03s, train loss: 188.4752]
+Sat 31 May 2025 02:08:19 INFO  epoch 37 training [time: 26.03s, train loss: 186.5267]
+Sat 31 May 2025 02:08:45 INFO  epoch 38 training [time: 26.11s, train loss: 185.2665]
+Sat 31 May 2025 02:09:11 INFO  epoch 39 training [time: 26.03s, train loss: 183.1158]
+Sat 31 May 2025 02:09:16 INFO  epoch 39 evaluating [time: 4.65s, valid_score: 0.175800]
+Sat 31 May 2025 02:09:16 INFO  valid result: 
+popular : OrderedDict([('recall@10', 0.0573), ('recall@20', 0.1037), ('ndcg@10', 0.3436), ('ndcg@20', 0.319), ('hit@10', 0.9818), ('hit@20', 0.9983), ('precision@10', 0.3315), ('precision@20', 0.3025)])    unpopular : OrderedDict([('recall@10', 0.1518), ('recall@20', 0.2396), ('ndcg@10', 0.1758), ('ndcg@20', 0.1979), ('hit@10', 0.6897), ('hit@20', 0.8199), ('precision@10', 0.1317), ('precision@20', 0.1081)])
+Sat 31 May 2025 02:09:42 INFO  epoch 40 training [time: 26.32s, train loss: 181.5772]
+Sat 31 May 2025 02:10:08 INFO  epoch 41 training [time: 26.11s, train loss: 179.7899]
+Sat 31 May 2025 02:10:34 INFO  epoch 42 training [time: 25.98s, train loss: 177.8612]
+Sat 31 May 2025 02:11:00 INFO  epoch 43 training [time: 26.11s, train loss: 178.2810]
+Sat 31 May 2025 02:11:26 INFO  epoch 44 training [time: 26.01s, train loss: 176.0857]
+Sat 31 May 2025 02:11:52 INFO  epoch 45 training [time: 26.06s, train loss: 173.9376]
+Sat 31 May 2025 02:12:18 INFO  epoch 46 training [time: 26.05s, train loss: 173.4491]
+Sat 31 May 2025 02:12:45 INFO  epoch 47 training [time: 26.11s, train loss: 170.6658]
+Sat 31 May 2025 02:13:11 INFO  epoch 48 training [time: 26.18s, train loss: 171.1069]
+Sat 31 May 2025 02:13:37 INFO  epoch 49 training [time: 26.19s, train loss: 170.2984]
+Sat 31 May 2025 02:13:41 INFO  epoch 49 evaluating [time: 4.60s, valid_score: 0.170800]
+Sat 31 May 2025 02:13:41 INFO  valid result: 
+popular : OrderedDict([('recall@10', 0.0538), ('recall@20', 0.0978), ('ndcg@10', 0.3226), ('ndcg@20', 0.3002), ('hit@10', 0.9636), ('hit@20', 0.9967), ('precision@10', 0.3119), ('precision@20', 0.2852)])    unpopular : OrderedDict([('recall@10', 0.148), ('recall@20', 0.2363), ('ndcg@10', 0.1708), ('ndcg@20', 0.1938), ('hit@10', 0.6766), ('hit@20', 0.8109), ('precision@10', 0.1274), ('precision@20', 0.1056)])
+Sat 31 May 2025 02:14:07 INFO  epoch 50 training [time: 25.69s, train loss: 166.7883]
+Sat 31 May 2025 02:14:31 INFO  epoch 51 training [time: 24.12s, train loss: 167.4814]
+Sat 31 May 2025 02:14:55 INFO  epoch 52 training [time: 24.12s, train loss: 166.6694]
+Sat 31 May 2025 02:15:20 INFO  epoch 53 training [time: 24.20s, train loss: 166.2165]
+Sat 31 May 2025 02:15:44 INFO  epoch 54 training [time: 24.09s, train loss: 163.8562]
+Sat 31 May 2025 02:16:08 INFO  epoch 55 training [time: 24.05s, train loss: 163.0256]
+Sat 31 May 2025 02:16:32 INFO  epoch 56 training [time: 24.01s, train loss: 163.5301]
+Sat 31 May 2025 02:16:56 INFO  epoch 57 training [time: 24.06s, train loss: 161.5615]
+Sat 31 May 2025 02:17:20 INFO  epoch 58 training [time: 24.06s, train loss: 162.4635]
+Sat 31 May 2025 02:17:44 INFO  epoch 59 training [time: 24.03s, train loss: 161.7188]
+Sat 31 May 2025 02:17:48 INFO  epoch 59 evaluating [time: 4.48s, valid_score: 0.168500]
+Sat 31 May 2025 02:17:48 INFO  valid result: 
+popular : OrderedDict([('recall@10', 0.0544), ('recall@20', 0.0955), ('ndcg@10', 0.3246), ('ndcg@20', 0.2961), ('hit@10', 0.9702), ('hit@20', 0.9983), ('precision@10', 0.3137), ('precision@20', 0.2788)])    unpopular : OrderedDict([('recall@10', 0.1467), ('recall@20', 0.234), ('ndcg@10', 0.1685), ('ndcg@20', 0.1912), ('hit@10', 0.677), ('hit@20', 0.8037), ('precision@10', 0.1258), ('precision@20', 0.1044)])
+Sat 31 May 2025 02:17:48 INFO  Finished training, best eval result in epoch 29
+Sat 31 May 2025 02:17:48 INFO  Loading model structure and parameters from saved\NGCF-May-31-2025_01-51-35.pth
+Sat 31 May 2025 02:17:54 INFO  best valid : OrderedDict([('popular', OrderedDict([('recall@10', 0.0589), ('recall@20', 0.108), ('ndcg@10', 0.3538), ('ndcg@20', 0.3321), ('hit@10', 0.9851), ('hit@20', 0.9967), ('precision@10', 0.3444), ('precision@20', 0.3182)])), ('unpopular', OrderedDict([('recall@10', 0.1516), ('recall@20', 0.2417), ('ndcg@10', 0.1785), ('ndcg@20', 0.2004), ('hit@10', 0.6864), ('hit@20', 0.8136), ('precision@10', 0.1338), ('precision@20', 0.1099)]))])
+Sat 31 May 2025 02:17:54 INFO  test result: OrderedDict([('popular', OrderedDict([('recall@10', 0.0878), ('recall@20', 0.1493), ('ndcg@10', 0.5534), ('ndcg@20', 0.4891), ('hit@10', 0.9851), ('hit@20', 1.0), ('precision@10', 0.5197), ('precision@20', 0.4448)])), ('unpopular', OrderedDict([('recall@10', 0.1669), ('recall@20', 0.2567), ('ndcg@10', 0.2075), ('ndcg@20', 0.2242), ('hit@10', 0.7044), ('hit@20', 0.8205), ('precision@10', 0.1531), ('precision@20', 0.1216)]))])

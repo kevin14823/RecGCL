@@ -1,0 +1,15 @@
+embedding_size: 64
+n_layers: 2
+reg_weight: 1e-4
+
+lambda: 0.1
+eps: 0.1
+temperature: 0.8
+layer_cl: 1
+require_pow: True
+
+epochs: 300
+train_batch_size: 500
+eval_batch_size: 8196
+
+eval_step: 10
