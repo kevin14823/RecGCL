@@ -161,11 +161,8 @@ class RecGCL(GeneralGraphRecommender):
 
         proto_nce_loss = self.proto_reg * (proto_nce_loss_user + proto_nce_loss_item)
 
-        # (a) Alignment: 拉近 batch 裡的 (user, item) 正樣本對
         alignment_loss = ((norm_user_embeddings - norm_item_embeddings)**2).sum(dim=1).mean()
 
-        # (b) Uniformity: 僅在當前 batch 裡做近似
-        #    取 batch 中的使用者 embedding 做均勻化
         batch_user_norm = F.normalize(user_embeddings, dim=1)
         dist_mat = torch.cdist(batch_user_norm, batch_user_norm, p=2)
         exp_neg_dist = torch.exp(-2 * (dist_mat ** 2))
